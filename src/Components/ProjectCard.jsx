@@ -1,10 +1,9 @@
 import Image from "next/image";
 
-
-function ProjectCard({text, photoPath, dayDate, monthDate, yearDate, stars, ratingsQuant}) {
+function ProjectCard({text, imagePath, dayDate, monthDate, yearDate, stars, reviewsQuant}) {
     return(
         <div className="ProjectCard">
-            <Image alt="projectImage" fill src={photoPath} className="image"/>
+            <Image alt="projectImage" fill src={imagePath} className="image"/>
             <div className="projectInfo">
                 <p>{text}</p>
                 <div className="projectFooter">
@@ -13,7 +12,7 @@ function ProjectCard({text, photoPath, dayDate, monthDate, yearDate, stars, rati
                     </div>
                     <div className="rating">
                         {stars}stars
-                        ({ratingsQuant})
+                        ({reviewsQuant})
                     </div>
                 </div>
             </div>

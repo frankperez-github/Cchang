@@ -84,6 +84,7 @@ button{
   border-width: 1px;
   border-color: white;
   margin: 8% 0;
+  margin-bottom: 2%;
   box-shadow: gray 0px 2px 15px;
 }
 .projectInfo
@@ -107,12 +108,20 @@ button{
 }
 .siteButton
 {
+  margin-top: 5%;
+  background-color: white;
+  border: solid;
+  border-width: 2px;
+  border-color: gray;
+  color: gray;
+  padding: 2% 3%;
+  border-radius: 1.5rem;
+  box-shadow: rgb(186, 186, 186) -4px 4px 10px;
+}
+.siteButton:hover
+{
   background-color: gray;
   color: white;
-  padding: 3%;
-  border-radius: 1.5rem;
-  border: none;
-  box-shadow: rgb(186, 186, 186) -4px 4px 10px;
 }
 .largeButton
 {
@@ -121,4 +130,45 @@ button{
 .shortButton
 {
   width: 35%
+}
+.extraLarge{
+  width: 100%;
+}
+textarea
+{
+  margin-top: 5%;
+  border-radius: 2rem;
+  padding: 5%;
+}
+.backArrow{
+  width: 20%;
+  margin-right: 10%;
+}
+.arrowAndTitle{
+  align-items: center;
+  display: flex;
+  justify-content: left;
+  width: 50%;
+}
+.backArrow
+{
+  background-color: rgb(14, 14, 97);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 3% 2%;
+  height: 20vh;
+  border-color: rgb(214, 213, 213);
+  align-items: top;
+  color: #ffffff;
+}
+.arrowAndTitle
+{
+  padding-bottom: 10%;
+}
+.backArrowImage
+{
+  width: 10%;
+  padding: 5% 6%;
+  padding-bottom: 3%;
 }

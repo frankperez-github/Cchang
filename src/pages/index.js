@@ -5,6 +5,7 @@ import Header from '@/Components/Header'
 import GeneralInformation from '@/Components/GeneralInformation'
 import Services from '@/Components/Services'
 import Projects from '@/Components/Projects'
+import Contact from '@/Components/Contact'
 
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <GeneralInformation />
         <Services />
         <Projects />
+        <Contact />
       </main>
     </>
   )

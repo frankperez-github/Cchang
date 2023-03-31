@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 function Header(){
     return(
@@ -13,12 +14,12 @@ function Header(){
                 </div>
             </div>
             <div className="navBar">
-                <a href="#regionEmpresa">
+                <Link href="/">
                     SOBRE LA EMPRESA
-                </a>
-                <a href="regionProyectos">
+                </Link>
+                <Link href="/Projects">
                     PROYECTOS
-                </a>
+                </Link>
             </div>
         </div>
     );
