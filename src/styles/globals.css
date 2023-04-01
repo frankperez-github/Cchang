@@ -113,6 +113,7 @@ button{
 }
 .ServiceCard
 {
+  height: 13vh;
   margin: 5% 0;
   color: white;
   background-color: blue;
@@ -144,6 +145,7 @@ button{
 .projectInfo
 {
   padding: 6%;
+  padding-bottom: 0;
 }
 .projectInfo p
 {
@@ -152,6 +154,8 @@ button{
 }
 .projectFooter
 {
+  margin-bottom: -4%;
+  margin-top: 5%;
   display: flex;
   justify-content: space-between;
 }
@@ -187,6 +191,23 @@ button{
 }
 .extraLarge{
   width: 100%;
+}
+.reviewsPreview
+{
+  align-items: center;
+  margin-right: 20%;
+}
+.networks
+{
+  display: flex;
+  justify-content: space-between;
+  margin: 3% 0;
+  width: 45%;
+}
+.networkImage
+{
+  cursor: pointer;
+  width: 30% !important;
 }
 textarea
 {

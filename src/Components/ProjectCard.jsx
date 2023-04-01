@@ -10,9 +10,15 @@ function ProjectCard({text, imagePath, dayDate, monthDate, yearDate, stars, revi
                     <div className="date">
                         {dayDate}-{monthDate}-{yearDate}
                     </div>
-                    <div className="rating">
-                        {stars}stars
-                        ({reviewsQuant})
+                    <div className="reviews reviewsPreview">
+                        <Image className="image" src="/star.png" fill alt="*"/>
+                        <Image className="image" src="/star.png" fill alt="*"/>
+                        <Image className="image" src="/star.png" fill alt="*"/>
+                        <Image className="image" src="/star.png" fill alt="*"/>
+                        <Image className="image" src="/star.png" fill alt="*"/>
+                        <div className="">
+                            <p>(24)</p>
+                        </div>
                     </div>
                 </div>
             </div>
