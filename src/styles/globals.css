@@ -302,14 +302,22 @@ textarea
     font-size: 30px;
   }
   h2{
-    font-size: 25px;
+    font-size: 22px;
   }
   h3{
     font-size: 20px;
   }
-  p, a, button,input, select
+  p, button,input, select
   {
     font-size: 18px;
+  }
+  a
+  {
+    font-size: 15px;
+  }
+  textarea
+  {
+    font-size: 13px;
   }
 }
 @media (max-width: 420px) {
@@ -323,8 +331,16 @@ textarea
   h3{
     font-size: 15px;
   }
-  p, a, button, input, select
+  p, button, input, select
   {
     font-size: 15px;
+  }
+  a
+  {
+    font-size: 12px;
+  }
+  textarea
+  {
+    font-size: 10px;
   }
 }
