@@ -13,12 +13,8 @@ function ProjectCard({project}) {
                     <div className="reviews reviewsPreview">
                         {
                             // Aqui van tantas imagenes como {project.reviews}
+                            <Image className="image" src="/star.png" fill alt="*"/>
                         }
-                             
-                        <Image className="image" src="/star.png" fill alt="*"/>
-                        <Image className="image" src="/star.png" fill alt="*"/>
-                        <Image className="image" src="/star.png" fill alt="*"/>
-                        <Image className="image" src="/star.png" fill alt="*"/>
                         <div className="">
                             <p>({project.reviews})</p>
                         </div>
