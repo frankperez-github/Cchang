@@ -23,7 +23,7 @@ function Header(){
                     
                 </div>
             </div>
-            <div className="logo">
+            <div className="logo" onClick={()=>(window.open("/", "_self"))}>
                 <Image className="image" src="/logo.png" fill/>
             </div>
             <div className="navBar">

@@ -24,8 +24,8 @@ function GeneralInformation(){
     }
 
     return(
-        <div className="GeneralInfo mobContainer" onClick={()=>showInfo()}>
-            <div className="infoTitle">
+        <div className="GeneralInfo mobContainer" >
+            <div className="infoTitle" onClick={()=>showInfo()}>
                 <h2>Información General</h2>
                 <h2>X</h2>
                 {/* Image para pestanna */}

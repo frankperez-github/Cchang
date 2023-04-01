@@ -27,14 +27,13 @@ button{
 {
   color: white;
   background-color: rgb(47, 20, 104);
-  height: 25vh;
   margin-bottom: 20%;
 }
 .logo
 {
   width: 30%;
   padding-left: 3%;
-  position: absolute;
+  cursor: pointer;
 }
 .name
 {
@@ -49,7 +48,7 @@ button{
   background-color: white;
   color: black;
   padding-bottom: 0;
-  margin-top: 15%;
+  margin-top: -20%;
   padding: 3%;
   display: flex;
   justify-content: right;
@@ -71,6 +70,7 @@ button{
 }
 .infoTitle
 {
+  cursor: pointer;
   display: flex;
   justify-content: left;
   border-bottom: solid;
