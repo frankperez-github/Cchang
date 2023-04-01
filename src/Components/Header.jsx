@@ -19,8 +19,10 @@ function Header(){
                     <h2>Construyendo</h2>
                     <h1>Confianza</h1>
                 </div>
-                <div className="photos">
-                    
+                <div className="headerImages">
+                    <Image className="image headerImage" src="/headerImg1.png" fill/>
+                    <Image className="image headerImage" src="/headerImg2.png" fill/>
+                    <Image className="image headerImage" src="/headerImg3.png" fill/>
                 </div>
             </div>
             <div className="logo" onClick={()=>(window.open("/", "_self"))}>
