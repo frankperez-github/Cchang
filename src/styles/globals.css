@@ -297,3 +297,34 @@ textarea
   padding-top: 5%;
   padding-left: 2%;
 }
+@media (max-width:500px) {
+  h1{
+    font-size: 30px;
+  }
+  h2{
+    font-size: 25px;
+  }
+  h3{
+    font-size: 20px;
+  }
+  p, a, button,input, select
+  {
+    font-size: 18px;
+  }
+}
+@media (max-width: 420px) {
+  
+  h1{
+    font-size: 25px;
+  }
+  h2{
+    font-size: 20px;
+  }
+  h3{
+    font-size: 15px;
+  }
+  p, a, button, input, select
+  {
+    font-size: 15px;
+  }
+}

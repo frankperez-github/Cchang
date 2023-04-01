@@ -6,6 +6,7 @@ const SiteContext = createContext()
 export const SiteContextProvider = ({children})=>{
     
     const [selected, setSelected] = useState(0)
+
     const projects = [
         {
             "images":["/projectImage.png"],
