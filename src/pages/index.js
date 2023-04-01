@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css'
 import Header from '@/Components/Header'
 import GeneralInformation from '@/Components/GeneralInformation'
 import Services from '@/Components/Services'
-import Projects from '@/Components/Projects'
+import Projects from '@/Components/ProjectsSection'
 import Contact from '@/Components/Contact'
 
 

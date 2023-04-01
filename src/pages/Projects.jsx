@@ -14,16 +14,16 @@ function Projects() {
             <Header />
             <div className="Projects mobContainer">
                 
-                <ProjectCard imagePath="/next.svg" dayDate="21" monthDate="03" yearDate="2022" text="Remodelacion de las oficinas comerciales de Nissan en Cuba" stars="5" reviewsQuant="24" />
+                <ProjectCard imagePath="/projectImage.png" dayDate="21" monthDate="03" yearDate="2022" text="Remodelacion de las oficinas comerciales de Nissan en Cuba" stars="5" reviewsQuant="24" />
                 <button onClick={()=>handleClick(1)} className="siteButton extraLarge">Ver Más</button>
                
-                <ProjectCard imagePath="/next.svg" dayDate="21" monthDate="03" yearDate="2022" text="Remodelacion de las oficinas comerciales de Nissan en Cuba" stars="5" reviewsQuant="24" />
+                <ProjectCard imagePath="/projectImage.png" dayDate="21" monthDate="03" yearDate="2022" text="Remodelacion de las oficinas comerciales de Nissan en Cuba" stars="5" reviewsQuant="24" />
                 <button className="siteButton extraLarge">Ver Más</button>
 
-                <ProjectCard imagePath="/next.svg" dayDate="21" monthDate="03" yearDate="2022" text="Remodelacion de las oficinas comerciales de Nissan en Cuba" stars="5" reviewsQuant="24" />
+                <ProjectCard imagePath="/projectImage.png" dayDate="21" monthDate="03" yearDate="2022" text="Remodelacion de las oficinas comerciales de Nissan en Cuba" stars="5" reviewsQuant="24" />
                 <button className="siteButton extraLarge">Ver Más</button>
 
-                <ProjectCard imagePath="/next.svg" dayDate="21" monthDate="03" yearDate="2022" text="Remodelacion de las oficinas comerciales de Nissan en Cuba" stars="5" reviewsQuant="24" />
+                <ProjectCard imagePath="/projectImage.png" dayDate="21" monthDate="03" yearDate="2022" text="Remodelacion de las oficinas comerciales de Nissan en Cuba" stars="5" reviewsQuant="24" />
                 <button className="siteButton extraLarge">Ver Más</button>
 
             </div>

@@ -19,13 +19,38 @@ button{
   cursor: pointer;
 }
 .image{
-  object-fit: contain;
+  object-fit: cover;
   width: 100% !important;
   position: relative !important;
 }
-
+.Header
+{
+  color: white;
+  background-color: rgb(47, 20, 104);
+  height: 25vh;
+  margin-bottom: 20%;
+}
+.logo
+{
+  width: 30%;
+  padding-left: 3%;
+  position: absolute;
+}
+.name
+{
+  margin: 5%;
+  padding-top: 5%;
+  margin-top: 0;
+  padding-left: 5%;
+  margin-bottom: 2%;
+}
 .navBar
 {
+  background-color: white;
+  color: black;
+  padding-bottom: 0;
+  margin-top: 15%;
+  padding: 3%;
   display: flex;
   justify-content: right;
   padding-right: 5%;
@@ -33,6 +58,11 @@ button{
 .navBar a
 {
   margin: 0 3%;
+}
+.selected
+{
+  border-bottom: solid;
+  border-color: rgb(255, 134, 5);
 }
 .mobContainer
 {
@@ -171,4 +201,54 @@ textarea
   width: 10%;
   padding: 5% 6%;
   padding-bottom: 3%;
+}
+.projectImage
+{
+  margin: 10% 0;
+  margin-bottom: 5%;
+  border-radius: 0.9rem;
+}
+.photoFoot
+{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  align-items:baseline;
+}
+.reviews
+{
+  display: flex;
+  justify-content: space-between;
+  width: 8%;
+  padding-right: 14%;
+  margin-bottom: 10%;
+}
+.Project h2
+{
+  margin: 8% 0;
+}
+.projectImages
+{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.projectImagePrev
+{
+  margin: 2%;
+  width: 45% !important;
+}
+.completeReview
+{
+  width: 50%;
+}
+.completeStar
+{
+  cursor: pointer;
+}
+.reviewsQuantity
+{
+  padding-top: 5%;
+  padding-left: 2%;
 }
