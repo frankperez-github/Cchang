@@ -1,23 +1,26 @@
 import Image from "next/image";
 
-function ProjectCard({text, imagePath, dayDate, monthDate, yearDate, stars, reviewsQuant}) {
+function ProjectCard({project}) {
     return(
         <div className="ProjectCard">
-            <Image alt="projectImage" fill src={imagePath} className="image"/>
+            <Image alt="projectImage" fill src={project.images[0]} className="image"/>
             <div className="projectInfo">
-                <p>{text}</p>
+                <p>{project.title}</p>
                 <div className="projectFooter">
                     <div className="date">
-                        {dayDate}-{monthDate}-{yearDate}
+                        {project.day}-{project.month}-{project.year}
                     </div>
                     <div className="reviews reviewsPreview">
-                        <Image className="image" src="/star.png" fill alt="*"/>
+                        {
+                            // Aqui van tantas imagenes como {project.reviews}
+                        }
+                             
                         <Image className="image" src="/star.png" fill alt="*"/>
                         <Image className="image" src="/star.png" fill alt="*"/>
                         <Image className="image" src="/star.png" fill alt="*"/>
                         <Image className="image" src="/star.png" fill alt="*"/>
                         <div className="">
-                            <p>(24)</p>
+                            <p>({project.reviews})</p>
                         </div>
                     </div>
                 </div>
