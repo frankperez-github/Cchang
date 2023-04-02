@@ -6,6 +6,7 @@ import GeneralInformation from '@/Components/GeneralInformation'
 import Services from '@/Components/Services'
 import Projects from '@/Components/ProjectsSection'
 import Contact from '@/Components/Contact'
+import NavBar from '@/Components/NavBar'
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Header />
+        <NavBar />
         <div className="desktopView">
           <GeneralInformation />
           <div className="desktopView rightColumn">

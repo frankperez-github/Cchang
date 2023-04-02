@@ -25,7 +25,7 @@ function GeneralInformation(){
 
     return(
         <div className="GeneralInfo mobContainer" >
-            <div className="infoTitle" onClick={()=>showInfo()}>
+            <div className="infoTitle desktopHidden" onClick={()=>showInfo()}>
                 <h2>Información General</h2>
                 <h2>X</h2>
                 {/* Image para pestanna */}

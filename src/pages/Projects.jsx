@@ -1,4 +1,8 @@
-import Contact from "@/Components/Contact";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper";import Contact from "@/Components/Contact";
 import Header from "@/Components/Header";
 import ProjectCard from "@/Components/ProjectCard";
 import { useContext } from "react";
@@ -15,17 +19,27 @@ function Projects() {
     return(
         <>
             <Header />
-            <div className="Projects mobContainer">
-            {
-                projects.map(project => (
-                <>
-                    <ProjectCard project={project} />
-                    <button onClick={()=>handleClick(1)} className="siteButton extraLarge">Ver Más</button>
-                </>
-                ))
-            }
+            <div className="flex">
+                <div className="Projects Carrus mobContainer">
+                <Swiper slidesPerView={3} loop={true} navigation={true}  modules={[Pagination, Navigation]} className="mySwiper">
+                {
+                    projects.map(project => (
+                        <SwiperSlide key={project.id} className="slide">
+                            <div className="slideElement">
+                                <ProjectCard project={project} />
+                                <button onClick={()=>handleClick(1)} className="siteButton extraLarge">Ver Más</button>
+                            </div>
+                        </SwiperSlide>
+                    
+                    ))
+                }
+                </Swiper>
+
+                </div>
+                <div className="">
+                    <Contact />
+                </div>
             </div>
-            <Contact />
         </>
     );
 }

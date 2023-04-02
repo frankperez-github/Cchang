@@ -7,7 +7,7 @@ function Projects(){
 
     return(
         <div className="Projects mobContainer">
-            <h2>Proyectos</h2>
+            <h2 className='desktopHidden'>Proyectos</h2>
             <ProjectCard project={projects[0]}/>
             <div className="projectsButtons">
                 <button onClick={()=>(window.open(`/Project?id=1` ,"_self"))} className="siteButton shortButton">Ver Más</button>

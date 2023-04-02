@@ -9,6 +9,17 @@ export const SiteContextProvider = ({children})=>{
 
     const projects = [
         {
+            "id": 1,
+            "images":["/projectImage.png"],
+            "title": "Remodelación de las oficinas comerciales de Nissan en Cuba",
+            "day": 21,
+            "month": 3,
+            "year": 2022,
+            "stars": 5,
+            "reviews": 24
+        },
+        {
+            "id": 2,
             "images":["/projectImage.png"],
             "title": "Remodelación de las oficinas comerciales de Nissan en Cuba",
             "day": 21,
