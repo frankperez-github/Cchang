@@ -16,7 +16,7 @@ function Contact() {
             </div>
 
             <textarea id="message" placeholder="Díganos su opinión" name="" cols="42" rows="12" />
-            <button onClick={()=>sendMessage()} className="siteButton largeButton">Enviar Mensaje</button>
+            <button onClick={()=>sendMessage()} className="siteButton sendMessage largeButton">Enviar Mensaje</button>
         </div>
     );
 }

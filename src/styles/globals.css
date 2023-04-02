@@ -302,7 +302,7 @@ textarea
     font-size: 30px;
   }
   h2{
-    font-size: 22px;
+    font-size: 21px;
   }
   h3{
     font-size: 20px;
@@ -326,7 +326,7 @@ textarea
     font-size: 25px;
   }
   h2{
-    font-size: 20px;
+    font-size: 16px;
   }
   h3{
     font-size: 15px;
@@ -342,5 +342,76 @@ textarea
   textarea
   {
     font-size: 10px;
+  }
+}
+
+@media (min-width:501px) {
+  .mobContainer
+  {
+    width: 90%;
+    margin: 0 5%;
+  }
+  .desktopView
+  {
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .GeneralInfo
+  {
+    width: 85%;
+    margin-bottom: 5%;
+  }
+  .Services
+  {
+    width: 70%;
+    margin-left: -3%;
+  }
+  
+  .Projects, .Contact
+  {
+    margin-bottom: 12%;
+    width: 90%;
+  }
+  .Projects h2
+  {
+    margin-bottom: 18%;
+  }
+  .Services h2
+  {
+    margin-bottom: 16%;
+  }
+  .sendMessage
+  {
+    display: none;
+  }
+  .projectFooter
+  {
+    margin-right: 8%;
+  }
+  .networks
+  {
+    width: 100%;
+    justify-content: left;
+  }
+  .networkImage
+  {
+    margin-right: 3%;
+    width: 20% !important;
+  }
+  textarea
+  {
+    display: none;
+  }
+  .ServiceCard
+  {
+    height: 12vh;
+    margin: 12% 0;
+  }
+  .ServiceName
+  {
+    padding-left: 5%;
+    line-height: 110%;
+    width: 70%;
   }
 }
