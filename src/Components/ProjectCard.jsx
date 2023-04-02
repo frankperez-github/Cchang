@@ -12,8 +12,8 @@ function ProjectCard({project}) {
                     </div>
                     <div className="reviews reviewsPreview">
                         {
-                            [... Array(project.stars).keys()].map(() =>
-                                <Image className="image" src="/star.png" fill alt="*"/>
+                            [... Array(project.stars).keys()].map((number) =>
+                                <Image key={number} className="image" src="/star.png" fill alt="*"/>
                             )
                         }
                         <div className="">
