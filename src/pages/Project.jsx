@@ -98,7 +98,7 @@ function Project() {
                     {
                         (project.secondaryImages).map(imagePath=>
                             (
-                                <Image className="image projectImagePrev" src={imagePath} fill alt="*"/>
+                                <Image key={imagePath} className="image projectImagePrev" src={imagePath} fill alt="*"/>
                             ))
                         }
                 </div>
@@ -145,7 +145,7 @@ function Project() {
                         {
                             (project.secondaryImages).map(imagePath=>
                                 (
-                                    <Image className="image projectImagePrev" src={imagePath} fill alt="*"/>
+                                    <Image key={imagePath} className="image projectImagePrev" src={imagePath} fill alt="*"/>
                                 ))
                         }
                         
