@@ -2,13 +2,44 @@ import Image from "next/image";
 import ReturnBar from "@/Components/ReturnBar";
 import Contact from "@/Components/Contact";
 import Header from "@/Components/Header";
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import SiteContext from "@/Context/siteContext";
+import { useRouter } from "next/router";
+
 
 function Project() {
 
+    const { updateRating, projects } = useContext(SiteContext)
+    const router = useRouter()
+    const { id } = router.query
+
+    const handleReview =(stars)=>{
+        updateRating(id, stars)
+    }
+    const [project, setProject] = useState(
+        {"id": 0,
+        "principalImage":"",
+        "secondaryImages":[],
+        "title":{
+            "keyWords":"",
+            "text": ""
+        },
+        "day": 0,
+        "month": 0,
+        "year": 0,
+        "stars": 0,
+        "reviews": 0}
+    )
+
     useEffect(()=>{
-            console.log(document.getElementById("message").style.display)
-    }, [])
+        if(!id)
+        {
+            return
+        }
+        setProject(projects[id-1])
+        console.log(project)
+    }, [id, projects])  
+
 
     return(
         <>
@@ -17,42 +48,37 @@ function Project() {
             </div>
             <ReturnBar />    
             <div className="Project mobContainer desktopHidden">
+                <p><b>{project.title.keyWords}</b> {project.title.text}</p>
                 
-                <p><b>Remodelación</b> de las oficinas comerciales de Nissan en Cuba</p>
-                
-                <Image className="image projectImage" src="/projectImage.png" alt="projectImage" fill/>
+                <Image className="image projectImage" src={project.principalImage} alt="projectImage" fill/>
                 
                 <div className="photoFoot">
                     <h2>Explicación</h2>
                     <div className="reviews">
-                        <Image className="image" src="/star.png" fill alt="*"/>
-                        <Image className="image" src="/star.png" fill alt="*"/>
-                        <Image className="image" src="/star.png" fill alt="*"/>
-                        <Image className="image" src="/star.png" fill alt="*"/>
-                        <Image className="image" src="/star.png" fill alt="*"/>
+                    {
+                            [... Array(project.stars).keys()].map((number) =>
+                                <Image key={number} className="image" src="/star.png" fill alt="*"/>
+                            )
+                        }
                         <div className="">
-                            <p>(24)</p>
+                            <p>({project.reviews})</p>
                         </div>
                     </div>
                 </div>
 
                 <p>
-                    Construir, reparar y mantener
-                    infraestructuras, así como instalar y
-                    sostener sistemas eléctricos y de
-                    refrigeración y clima, garantizando
-                    calidad y confort; con un personal
-                    competente y comprometido con
-                    satisfacer las exigencias de los clientes
+                    {project.description}
                 </p>
 
                 <h2>Otras imágenes</h2>
 
                 <div className="projectImages">
-                    <Image className="image projectImagePrev" src="/projectImage1.png" fill alt="*"/>
-                    <Image className="image projectImagePrev" src="/projectImage1.png" fill alt="*"/>
-                    <Image className="image projectImagePrev" src="/projectImage1.png" fill alt="*"/>
-                    <Image className="image projectImagePrev" src="/projectImage1.png" fill alt="*"/>
+                    {
+                            (project.secondaryImages).map(imagePath=>
+                                (
+                                    <Image className="image projectImagePrev" src={imagePath} fill alt="*"/>
+                                ))
+                        }
                 </div>
 
                 <h2>Califica nuestro trabajo</h2>
@@ -74,20 +100,20 @@ function Project() {
             <div className="desktopDistribution mobileHidden">
 
                 <div className="left column">
-                    <p><b>Remodelación</b> de las oficinas comerciales de Nissan en Cuba</p>
+                    <p><b>{project.title.keyWords}</b> {project.title.text}</p>
                     
-                    <Image className="image projectImage" src="/projectImage.png" alt="projectImage" fill/>
+                    <Image className="image projectImage" src={project.principalImage} alt="projectImage" fill/>
                     
                     <div className="photoFoot">
                         <h2>Valoración</h2>
                         <div className="reviews">
-                            <Image className="image" src="/star.png" fill alt="*"/>
-                            <Image className="image" src="/star.png" fill alt="*"/>
-                            <Image className="image" src="/star.png" fill alt="*"/>
-                            <Image className="image" src="/star.png" fill alt="*"/>
-                            <Image className="image" src="/star.png" fill alt="*"/>
+                            {
+                                [... Array(project.stars).keys()].map((number) =>
+                                    <Image key={number} className="image" src="/star.png" fill alt="*"/>
+                                )
+                            }
                             <div className="">
-                                <p>(24)</p>
+                                <p>({project.reviews})</p>
                             </div>
                         </div>
                     </div>
@@ -96,22 +122,19 @@ function Project() {
                     <h2>Otras imágenes</h2>
 
                     <div className="projectImages">
-                        <Image className="image projectImagePrev" src="/projectImage1.png" fill alt="*"/>
-                        <Image className="image projectImagePrev" src="/projectImage1.png" fill alt="*"/>
-                        <Image className="image projectImagePrev" src="/projectImage1.png" fill alt="*"/>
-                        <Image className="image projectImagePrev" src="/projectImage1.png" fill alt="*"/>
+                        {
+                            (project.secondaryImages).map(imagePath=>
+                                (
+                                    <Image className="image projectImagePrev" src={imagePath} fill alt="*"/>
+                                ))
+                        }
+                        
                     </div>
                 </div>
                 <div className="center-right column">
                     <h2>Explicación</h2>
                     <p>
-                        Construir, reparar y mantener
-                        infraestructuras, así como instalar y
-                        sostener sistemas eléctricos y de
-                        refrigeración y clima, garantizando
-                        calidad y confort; con un personal
-                        competente y comprometido con
-                        satisfacer las exigencias de los clientes
+                        {project.description}
                     </p>
                     <h2>Califica nuestro trabajo</h2>
                     <div className="reviews completeReview">
@@ -120,9 +143,7 @@ function Project() {
                         <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
                         <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
                         <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        <div className="reviewsQuantity">
-                            <p>(24)</p>
-                        </div>
+                        
                     </div>
                 </div>
                 <div className="right column">

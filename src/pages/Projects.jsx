@@ -7,6 +7,7 @@ import Header from "@/Components/Header";
 import ProjectCard from "@/Components/ProjectCard";
 import { useContext } from "react";
 import SiteContext from "@/Context/siteContext";
+import NavBar from "@/Components/NavBar";
 
 function Projects() {
 
@@ -19,15 +20,18 @@ function Projects() {
     return(
         <>
             <Header />
+            <div className="mobileHidden">
+                <NavBar />
+            </div>
             <div className="flex">
-                <div className="Projects Carrus mobContainer">
-                <Swiper slidesPerView={3} loop={true} navigation={true}  modules={[Pagination, Navigation]} className="mySwiper">
+                <div className="Projects Carrous mobContainer">
+                <Swiper slidesPerView={3} loop={true} navigation={true}  modules={Navigation} className="mySwiper">
                 {
                     projects.map(project => (
                         <SwiperSlide key={project.id} className="slide">
                             <div className="slideElement">
                                 <ProjectCard project={project} />
-                                <button onClick={()=>handleClick(1)} className="siteButton extraLarge">Ver Más</button>
+                                <button onClick={()=>handleClick(project.id)} className="siteButton extraLarge">Ver Más</button>
                             </div>
                         </SwiperSlide>
                     
@@ -36,7 +40,7 @@ function Projects() {
                 </Swiper>
 
                 </div>
-                <div className="">
+                <div className="contact">
                     <Contact />
                 </div>
             </div>

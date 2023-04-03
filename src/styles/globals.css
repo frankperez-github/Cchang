@@ -514,6 +514,7 @@ textarea
   }
   .left
   {
+    margin-top: 2%;
     width: 45%;
   }
   .center-left
@@ -528,30 +529,42 @@ textarea
   .right
   {
     width: 40%;
-    padding-top: 7.5%;
+    padding-top: 7%;
   }
   textarea
   {
     height: 20vh;
     width: 70%;
   }
-  .Carrus
+  .Carrous
   {
+    margin: 0;
     width: 70%;
+    margin-top: 5%;
+    margin-bottom: 15%;
   }
   .mySwiper
   {
-    width: 70%;
-    margin: 0;
+    width: 97%;
   }
   .slideElement
   { 
-    width: 40%;
-    margin: 0 10%;
+    width: 80%;
+    padding: 0 10%;
+    margin: 0;
   }
   .flex
   {
     display: flex;
     justify-content: space-between;
+  }
+  .contact
+  {
+    margin-top: 4%;
+    width: 30%;
+  }
+  .networkImage
+  {
+    width: 15% !important;
   }
 }

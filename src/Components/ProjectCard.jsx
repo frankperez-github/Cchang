@@ -3,9 +3,9 @@ import Image from "next/image";
 function ProjectCard({project}) {
     return(
         <div className="ProjectCard">
-            <Image alt="projectImage" fill src={project.images[0]} className="image"/>
+            <Image alt="projectImage" fill src={project.principalImage} className="image"/>
             <div className="projectInfo">
-                <p>{project.title}</p>
+                <p>{project.title.keyWords} {project.title.text}</p>
                 <div className="projectFooter">
                     <div className="date">
                         {project.day}-{project.month}-{project.year}

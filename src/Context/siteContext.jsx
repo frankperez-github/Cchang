@@ -10,23 +10,77 @@ export const SiteContextProvider = ({children})=>{
     const projects = [
         {
             "id": 1,
-            "images":["/projectImage.png"],
-            "title": "Remodelación de las oficinas comerciales de Nissan en Cuba",
+            "principalImage":"/projectImage.png",
+            "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
+            "title":{
+                "keyWords":"Remodelación",
+                "text": "de las oficinas comerciales de Nissan en Cuba"
+            },
+            "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
             "day": 21,
             "month": 3,
             "year": 2022,
-            "stars": 5,
-            "reviews": 24
+            "stars": 0,
+            "reviews": 0
+        },{
+            "id": 2,
+            "principalImage":"/projectImage.png",
+            "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
+            "title":{
+                "keyWords":"Remodelación",
+                "text": "de las oficinas comerciales de Nissan en Cuba"
+            },
+            "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
+            "day": 21,
+            "month": 3,
+            "year": 2022,
+            "stars": 0,
+            "reviews": 0
         },
         {
-            "id": 2,
-            "images":["/projectImage.png"],
-            "title": "Remodelación de las oficinas comerciales de Nissan en Cuba",
+            "id": 3,
+            "principalImage":"/projectImage.png",
+            "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
+            "title":{
+                "keyWords":"Remodelación",
+                "text": "de las oficinas comerciales de Nissan en Cuba"
+            },
+            "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
             "day": 21,
             "month": 3,
             "year": 2022,
-            "stars": 5,
-            "reviews": 24
+            "stars": 0,
+            "reviews": 0
+        },
+        {
+            "id": 4,
+            "principalImage":"/projectImage.png",
+            "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
+            "title":{
+                "keyWords":"Remodelación",
+                "text": "de las oficinas comerciales de Nissan en Cuba"
+            },
+            "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
+            "day": 21,
+            "month": 3,
+            "year": 2022,
+            "stars": 0,
+            "reviews": 0
+        },
+        {
+            "id": 5,
+            "principalImage":"/projectImage.png",
+            "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
+            "title":{
+                "keyWords":"Remodelación",
+                "text": "de las oficinas comerciales de Nissan en Cuba"
+            },
+            "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
+            "day": 21,
+            "month": 3,
+            "year": 2022,
+            "stars": 0,
+            "reviews": 0
         }
     ]
     
