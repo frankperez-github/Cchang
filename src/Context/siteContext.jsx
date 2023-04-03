@@ -85,28 +85,74 @@ export const SiteContextProvider = ({children})=>{
         }
     ]
 
-    const updateRating=(id, stars)=>{
-        var newRating = 0
-        projects[id-1].reviews = [stars, ...projects[id-1].reviews]
-        projects[id-1].reviews.map(review=>
+    const ratedProjects = [
         {
-            newRating+=review
-        })
-        newRating = newRating / projects[id-1].reviews.length
-        projects[id-1].stars = Math.trunc(newRating)
-        
-        var newProject={
-            "id": id,
-            "principalImage":projects[id-1].principalImage,
-            "secondaryImages":projects[id-1].secondaryImages,
-            "title":projects[id-1].title,
-            "description":projects[id-1].description,
-            "day": projects[id-1].day,
-            "month": projects[id-1].month,
-            "year": projects[id-1].year,
-            "stars": projects[id-1].stars,
-            "reviews": projects[id-1].reviews
-        } //From here is ready to update project {id}
+            "id": 0,
+            "stars": 0
+        }
+    ]
+    const rateProject=(id)=>{
+        if(!ratedProjects.contains(id))
+        {
+            ratedProjects = [id,...ratedProjects]
+            localStorage.setItem("ratedProjects", ratedProjects)
+        }
+    }
+    const updateRating=(id, stars)=>
+    {
+        var oldRating = {"id":id, "stars":0}
+        var updatedRatings = []
+        JSON.parse(localStorage.getItem("ratedProjects")).map((rating=>
+        {
+            if(rating.id === id)
+            {
+                oldRating = rating
+                oldRating.stars = stars
+                updatedRatings = [oldRating, ...updatedRatings]
+            }
+            else
+            {
+                updatedRatings = [rating, ...updatedRatings]
+            }
+        }))
+        localStorage.setItem("ratedProjects", JSON.stringify(updatedRatings))
+        setRating(id, stars, false)
+    }
+    const setRating=(id, stars, New)=>{
+        if(New === true)
+        {
+            //calculating rating to project
+            var newRating = 0
+            projects[id-1].reviews = [stars, ...projects[id-1].reviews]
+            projects[id-1].reviews.map(review=>
+            {
+                newRating+=review
+            })
+            newRating = newRating / projects[id-1].reviews.length
+            projects[id-1].stars = newRating >= 4.7 ? 5 : Math.trunc(newRating)
+            
+            //Storaging rating to this user
+            const oldData = JSON.parse(localStorage.getItem("ratedProjects"))
+            localStorage.setItem("ratedProjects", JSON.stringify([{"id": id, "stars": projects[id-1].stars}], ...oldData))
+            New = false
+        }
+        if(New === false)
+        {
+            //changing project propierties
+            var newProject={
+                "id": id,
+                "principalImage":projects[id-1].principalImage,
+                "secondaryImages":projects[id-1].secondaryImages,
+                "title":projects[id-1].title,
+                "description":projects[id-1].description,
+                "day": projects[id-1].day,
+                "month": projects[id-1].month,
+                "year": projects[id-1].year,
+                "stars": projects[id-1].stars,
+                "reviews": projects[id-1].reviews
+            } //From here is ready to update project {id}
+        }
+    
     }
     
     return(
@@ -116,6 +162,8 @@ export const SiteContextProvider = ({children})=>{
                 selected,
                 setSelected,
                 projects,
+                setRating,
+                rateProject,
                 updateRating
             }}
         >

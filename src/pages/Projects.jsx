@@ -34,7 +34,6 @@ function Projects() {
                                 <button onClick={()=>handleClick(project.id)} className="siteButton extraLarge">Ver Más</button>
                             </div>
                         </SwiperSlide>
-                    
                     ))
                 }
                 </Swiper>

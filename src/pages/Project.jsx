@@ -9,12 +9,35 @@ import { useRouter } from "next/router";
 
 function Project() {
 
-    const { updateRating, projects } = useContext(SiteContext)
+    const { setRating, projects, updateRating } = useContext(SiteContext)
     const router = useRouter()
     const { id } = router.query
 
     const handleReview =(stars)=>{
-        updateRating(id, stars)
+        if(!localStorage.getItem("ratedProjects"))
+        {
+            return
+        }
+        var update = false
+        //Update rating
+        JSON.parse(localStorage.getItem("ratedProjects")).map((rating)=>
+        {
+        if(rating.id === id)
+            {
+                if(window.confirm("Ya usted valoró este proyecto. Desea volver a valorarlo?"))
+                {
+                    updateRating(id, stars)
+                    window.alert("Gracias por su valoración ("+stars+") estrella(s)")
+                    update = true
+                }
+            }
+        })
+        //new rating
+        if(update === false)
+        {
+            setRating(id, stars, true)
+            window.alert("Gracias por su valoración ("+stars+") estrella(s)")
+        }
     }
     const [project, setProject] = useState(
         {"id": 0,
@@ -73,10 +96,10 @@ function Project() {
 
                 <div className="projectImages">
                     {
-                            (project.secondaryImages).map(imagePath=>
-                                (
-                                    <Image className="image projectImagePrev" src={imagePath} fill alt="*"/>
-                                ))
+                        (project.secondaryImages).map(imagePath=>
+                            (
+                                <Image className="image projectImagePrev" src={imagePath} fill alt="*"/>
+                            ))
                         }
                 </div>
 

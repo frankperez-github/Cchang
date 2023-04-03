@@ -7,9 +7,22 @@ import Services from '@/Components/Services'
 import Projects from '@/Components/ProjectsSection'
 import Contact from '@/Components/Contact'
 import NavBar from '@/Components/NavBar'
-
+import { useContext, useEffect } from 'react'
+import SiteContext from '@/Context/siteContext'
 
 export default function Home() {
+
+  useEffect(()=>
+  {
+    localStorage.clear()
+    if(localStorage.getItem("ratedProjects") === null)
+    {
+      const ratedProjects = [{"id":0, "stars":0}]
+      localStorage.setItem("ratedProjects", JSON.stringify(ratedProjects))
+      console.log("aqui:"+JSON.parse(localStorage.getItem("ratedProjects")))
+    }
+  }, [])
+
   return (
     <>
       <Head>
