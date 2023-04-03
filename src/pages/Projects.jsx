@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";import Contact from "@/Components/Contact";
 import Header from "@/Components/Header";
 import ProjectCard from "@/Components/ProjectCard";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import SiteContext from "@/Context/siteContext";
 import NavBar from "@/Components/NavBar";
 
@@ -24,8 +24,8 @@ function Projects() {
                 <NavBar />
             </div>
             <div className="flex">
-                <div className="Projects Carrous mobContainer">
-                <Swiper slidesPerView={3} loop={true} navigation={true}  modules={Navigation} className="mySwiper">
+                <div className="Projects Carrous mobContainer mobileHidden">
+                <Swiper slidesPerView={3}   navigation={true} pagination={true}  modules={[Navigation]} className="mySwiper">
                 {
                     projects.map(project => (
                         <SwiperSlide key={project.id} className="slide">
@@ -38,6 +38,18 @@ function Projects() {
                     ))
                 }
                 </Swiper>
+
+                </div>
+                <div className="Projects mobContainer desktopHidden">
+                {
+                    projects.map(project => (
+                            <div className="slideElement">
+                                <ProjectCard project={project} />
+                                <button onClick={()=>handleClick(project.id)} className="siteButton extraLarge">Ver Más</button>
+                            </div>
+                    
+                    ))
+                }
 
                 </div>
                 <div className="contact">

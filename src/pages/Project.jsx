@@ -37,7 +37,6 @@ function Project() {
             return
         }
         setProject(projects[id-1])
-        console.log(project)
     }, [id, projects])  
 
 
@@ -61,7 +60,7 @@ function Project() {
                             )
                         }
                         <div className="">
-                            <p>({project.reviews})</p>
+                            <p>({project.reviews.length})</p>
                         </div>
                     </div>
                 </div>
@@ -83,19 +82,17 @@ function Project() {
 
                 <h2>Califica nuestro trabajo</h2>
                 <div className="reviews completeReview">
-                    <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <Image onClick={()=>(handleReview(1))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <Image onClick={()=>(handleReview(2))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <Image onClick={()=>(handleReview(3))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <Image onClick={()=>(handleReview(4))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <Image onClick={()=>(handleReview(5))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
                     <div className="reviewsQuantity">
                         <p>(24)</p>
                     </div>
                 </div>
             </div>
-            <div className="desktopHidden">
-                <Contact />
-            </div>
+            
 
             <div className="desktopDistribution mobileHidden">
 
@@ -113,7 +110,7 @@ function Project() {
                                 )
                             }
                             <div className="">
-                                <p>({project.reviews})</p>
+                                <p>({project.reviews.length})</p>
                             </div>
                         </div>
                     </div>
@@ -138,12 +135,12 @@ function Project() {
                     </p>
                     <h2>Califica nuestro trabajo</h2>
                     <div className="reviews completeReview">
-                        <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        <Image className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        
+                    <Image onClick={()=>(handleReview(1))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <Image onClick={()=>(handleReview(2))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <Image onClick={()=>(handleReview(3))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <Image onClick={()=>(handleReview(4))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <Image onClick={()=>(handleReview(5))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    
                     </div>
                 </div>
                 <div className="right column">

@@ -17,7 +17,7 @@ function ProjectCard({project}) {
                             )
                         }
                         <div className="">
-                            <p>({project.reviews})</p>
+                            <p>({project.reviews.length})</p>
                         </div>
                     </div>
                 </div>

@@ -20,9 +20,10 @@ export const SiteContextProvider = ({children})=>{
             "day": 21,
             "month": 3,
             "year": 2022,
-            "stars": 0,
-            "reviews": 0
-        },{
+            "stars": 3,
+            "reviews": [3,4,5,2,1]
+        },
+        {
             "id": 2,
             "principalImage":"/projectImage.png",
             "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
@@ -34,8 +35,8 @@ export const SiteContextProvider = ({children})=>{
             "day": 21,
             "month": 3,
             "year": 2022,
-            "stars": 0,
-            "reviews": 0
+            "stars": 2,
+            "reviews": [3,4,5,2,1]
         },
         {
             "id": 3,
@@ -49,8 +50,8 @@ export const SiteContextProvider = ({children})=>{
             "day": 21,
             "month": 3,
             "year": 2022,
-            "stars": 0,
-            "reviews": 0
+            "stars": 5,           
+            "reviews": [3,4,5,2,1]
         },
         {
             "id": 4,
@@ -64,8 +65,8 @@ export const SiteContextProvider = ({children})=>{
             "day": 21,
             "month": 3,
             "year": 2022,
-            "stars": 0,
-            "reviews": 0
+            "stars": 3,
+            "reviews": [3,4,5,2,1]
         },
         {
             "id": 5,
@@ -79,10 +80,34 @@ export const SiteContextProvider = ({children})=>{
             "day": 21,
             "month": 3,
             "year": 2022,
-            "stars": 0,
-            "reviews": 0
+            "stars": 4,
+            "reviews": [3,4,5,2,1]
         }
     ]
+
+    const updateRating=(id, stars)=>{
+        var newRating = 0
+        projects[id-1].reviews = [stars, ...projects[id-1].reviews]
+        projects[id-1].reviews.map(review=>
+        {
+            newRating+=review
+        })
+        newRating = newRating / projects[id-1].reviews.length
+        projects[id-1].stars = Math.trunc(newRating)
+        
+        var newProject={
+            "id": id,
+            "principalImage":projects[id-1].principalImage,
+            "secondaryImages":projects[id-1].secondaryImages,
+            "title":projects[id-1].title,
+            "description":projects[id-1].description,
+            "day": projects[id-1].day,
+            "month": projects[id-1].month,
+            "year": projects[id-1].year,
+            "stars": projects[id-1].stars,
+            "reviews": projects[id-1].reviews
+        } //From here is ready to update project {id}
+    }
     
     return(
 
@@ -90,7 +115,8 @@ export const SiteContextProvider = ({children})=>{
             value={{
                 selected,
                 setSelected,
-                projects
+                projects,
+                updateRating
             }}
         >
             {children}

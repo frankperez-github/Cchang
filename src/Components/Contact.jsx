@@ -11,9 +11,8 @@ function Contact() {
 
     const sendMessage =()=>
     {
-        const message = document.getElementById("message")
-        console.log(message.innerHTML)
-        // window.open(`mailto:reynier.baquero@gmail.com?body=${message}`)
+        const message = document.getElementById("message").value
+        window.open(`mailto:reynier.baquero@gmail.com?body=${message}`)
     }
     return(
         <div className="Contact mobContainer">

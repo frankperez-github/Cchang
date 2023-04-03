@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 
-
 function GeneralInformation(){
+    
 
     const [showing, setShowing] = useState(true)
 
@@ -24,6 +24,7 @@ function GeneralInformation(){
     }
 
     return(
+        
         <div className="GeneralInfo mobContainer" >
             <div className="infoTitle desktopHidden" onClick={()=>showInfo()}>
                 <h2>Información General</h2>
