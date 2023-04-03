@@ -91,13 +91,6 @@ export const SiteContextProvider = ({children})=>{
             "stars": 0
         }
     ]
-    const rateProject=(id)=>{
-        if(!ratedProjects.contains(id))
-        {
-            ratedProjects = [id,...ratedProjects]
-            localStorage.setItem("ratedProjects", ratedProjects)
-        }
-    }
     const updateRating=(id, stars)=>
     {
         var oldRating = {"id":id, "stars":0}
@@ -133,7 +126,9 @@ export const SiteContextProvider = ({children})=>{
             
             //Storaging rating to this user
             const oldData = JSON.parse(localStorage.getItem("ratedProjects"))
-            localStorage.setItem("ratedProjects", JSON.stringify([{"id": id, "stars": projects[id-1].stars}], ...oldData))
+            console.log("antes"+oldData)
+            const newElement = {"id":id, "stars":projects[id-1].stars} 
+            localStorage.setItem("ratedProjects", JSON.stringify([newElement,...oldData]))
             New = false
         }
         if(New === false)
@@ -152,6 +147,7 @@ export const SiteContextProvider = ({children})=>{
                 "reviews": projects[id-1].reviews
             } //From here is ready to update project {id}
         }
+        console.log("despues:"+JSON.stringify(localStorage.getItem("ratedProjects")))
     
     }
     
@@ -163,7 +159,6 @@ export const SiteContextProvider = ({children})=>{
                 setSelected,
                 projects,
                 setRating,
-                rateProject,
                 updateRating
             }}
         >
