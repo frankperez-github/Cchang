@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";import Contact from "@/Components/Contact";
+import { Navigation } from "swiper";import Contact from "@/Components/Contact";
 import Header from "@/Components/Header";
 import ProjectCard from "@/Components/ProjectCard";
 import { useContext, useEffect } from "react";
@@ -43,7 +43,7 @@ function Projects() {
                 <div className="Projects mobContainer desktopHidden">
                 {
                     projects.map(project => (
-                            <div className="slideElement">
+                            <div key={project.id} className="slideElement">
                                 <ProjectCard project={project} />
                                 <button onClick={()=>handleClick(project.id)} className="siteButton extraLarge">Ver Más</button>
                             </div>
