@@ -12,7 +12,7 @@ function ServiceCard({backgrColor, imagePath, Text, title}) {
                 <Image className="image" src={imagePath} alt="service" fill/>
             </div>
             <div className="ServiceName">
-                {Text} <b>{title}</b>
+                <p>{Text} <b>{title}</b></p>
             </div>
         </div>
     );

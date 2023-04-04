@@ -27,7 +27,7 @@ function Project() {
                 if(window.confirm("Ya usted valoró este proyecto. Desea volver a valorarlo?"))
                 {
                     updateRating(id, stars)
-                    window.alert("Gracias por su valoración ("+stars+") estrella(s)")
+                    window.alert("Gracias por su valoración: "+stars+" estrella(s)")
                     update = true
                 }
             }
@@ -36,7 +36,7 @@ function Project() {
         if(update === false)
         {
             setRating(id, stars, true)
-            window.alert("Gracias por su valoración ("+stars+") estrella(s)")
+            window.alert("Gracias por su valoración: "+stars+" estrella(s)")
         }
     }
     const [project, setProject] = useState(

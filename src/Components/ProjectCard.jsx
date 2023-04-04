@@ -7,9 +7,7 @@ function ProjectCard({project}) {
             <div className="projectInfo">
                 <p>{project.title.keyWords} {project.title.text}</p>
                 <div className="projectFooter">
-                    <div className="date">
-                        {project.day}-{project.month}-{project.year}
-                    </div>
+                        <p className="date">{project.day}-{project.month}-{project.year}</p>
                     <div className="reviews reviewsPreview">
                         {
                             [... Array(project.stars).keys()].map((number) =>

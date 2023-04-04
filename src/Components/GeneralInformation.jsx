@@ -1,24 +1,34 @@
-import { useState } from "react";
-
+import SiteContext from "@/Context/siteContext";
+import Image from "next/image";
+import { useState, useEffect, useContext } from "react";
 
 function GeneralInformation(){
-    
+    const{setSelected} = useContext(SiteContext)
+    useEffect(()=>{
+        setSelected(0)
+        document.getElementById(1).style.border="none"
+    })
 
     const [showing, setShowing] = useState(true)
-
     function showInfo(){
         
+        const arrow = document.getElementById("arrow")
+        const close = document.getElementById("close")
         var info = document.getElementById("InfoBody")
+        
         if (showing)
         {
             info.style.display = "none" 
             setShowing(false)
-
+            arrow.style.display = "block"
+            close.style.display = "none"
         } 
         else
         {
             info.style.display = "block"
             setShowing(true)
+            arrow.style.display = "none"
+            close.style.display = "block"
         }
 
     }
@@ -28,9 +38,8 @@ function GeneralInformation(){
         <div className="GeneralInfo mobContainer" >
             <div className="infoTitle desktopHidden" onClick={()=>showInfo()}>
                 <h2>Información General</h2>
-                <h2>X</h2>
-                {/* Image para pestanna */}
-                {/* Image para cerrar pestanna */}
+                <Image id="close" src="/close.png" className="image infoIcon" alt="X" fill/>
+                <Image id="arrow" src="/downArrow.png" className="image infoIcon arrow" alt="X" fill/>
             </div>
 
             <div id="InfoBody">

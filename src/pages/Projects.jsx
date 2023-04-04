@@ -11,18 +11,21 @@ import NavBar from "@/Components/NavBar";
 
 function Projects() {
 
-    const { projects } = useContext(SiteContext)
+    const { projects, setSelected } = useContext(SiteContext)
 
     const handleClick = (id) =>{
         window.open(`/Project/?id=${id}` , "_self")
     }
 
+    useEffect(()=>{
+        setSelected(1)
+        document.getElementById(0).style.border="none"
+    })
+
     return(
         <>
             <Header />
-            <div className="mobileHidden">
-                <NavBar />
-            </div>
+            <NavBar />
             <div className="flex">
                 <div className="Projects Carrous mobContainer mobileHidden">
                 <Swiper slidesPerView={3}   navigation={true} pagination={true}  modules={[Navigation]} className="mySwiper">
