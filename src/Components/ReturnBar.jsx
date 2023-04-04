@@ -7,7 +7,8 @@ function ReturnBar ()
         <div className="backArrow">
             <Link href="/" className="arrowAndTitle">
                 <div className="backArrowImage">
-                    <Image className="image" src="/backArrow.png" alt="logo" fill/>
+                    <Image className="image desktopHidden" src="/backArrow.svg" alt="logo" fill/>
+                    <Image className="image mobileHidden" src="/backArrow.png" alt="logo" fill/>
                 </div>
                 <p>Regresar al menú</p>
             </Link>
