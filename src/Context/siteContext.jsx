@@ -17,6 +17,7 @@ export const SiteContextProvider = ({children})=>{
                 "text": "de las oficinas comerciales de Nissan en Cuba"
             },
             "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
+            "category": "clima",
             "day": 21,
             "month": 3,
             "year": 2022,
@@ -32,6 +33,7 @@ export const SiteContextProvider = ({children})=>{
                 "text": "de las oficinas comerciales de Nissan en Cuba"
             },
             "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
+            "category": "clima",
             "day": 21,
             "month": 3,
             "year": 2022,
@@ -47,6 +49,7 @@ export const SiteContextProvider = ({children})=>{
                 "text": "de las oficinas comerciales de Nissan en Cuba"
             },
             "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
+            "category": "refrigeración",
             "day": 21,
             "month": 3,
             "year": 2022,
@@ -62,6 +65,7 @@ export const SiteContextProvider = ({children})=>{
                 "text": "de las oficinas comerciales de Nissan en Cuba"
             },
             "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
+            "category": "clima",
             "day": 21,
             "month": 3,
             "year": 2022,
@@ -77,6 +81,7 @@ export const SiteContextProvider = ({children})=>{
                 "text": "de las oficinas comerciales de Nissan en Cuba"
             },
             "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
+            "category": "reparaciones",
             "day": 21,
             "month": 3,
             "year": 2022,
@@ -147,8 +152,19 @@ export const SiteContextProvider = ({children})=>{
                 "reviews": projects[id-1].reviews
             } //From here is ready to update project {id}
         }
-        console.log("despues:"+JSON.stringify(localStorage.getItem("ratedProjects")))
-    
+    }
+
+    const filter=(category)=>
+    {
+        var filteredProjects = []
+        projects.map((project)=>
+        {
+            if(project.category === category)
+            {
+                filteredProjects = [project, ...filteredProjects]
+            }
+        })
+        return filteredProjects
     }
     
     return(
@@ -159,7 +175,8 @@ export const SiteContextProvider = ({children})=>{
                 setSelected,
                 projects,
                 setRating,
-                updateRating
+                updateRating,
+                filter
             }}
         >
             {children}

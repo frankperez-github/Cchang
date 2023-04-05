@@ -97,6 +97,19 @@ button{
 {
   margin: 0 3%;
 }
+.categoriesIcons
+{
+  display: flex;
+  justify-content: space-evenly;
+  width: 40%;
+  padding-left: 55.5%;
+  padding-top: 5%;
+}
+.categImage
+{
+  cursor: pointer;
+  width: 25% !important;
+}
 .selected
 {
   border-bottom: solid;
@@ -465,7 +478,14 @@ textarea
     width: 70%;
     margin-left: -3%;
   }
-  
+  .categoriesIcons
+  {
+    display: flex;
+    justify-content: space-evenly;
+    width: 18%;
+    padding-left: 40%;
+    margin-top: -12%;
+  }
   .Projects, .Contact
   {
     margin-bottom: 12%;

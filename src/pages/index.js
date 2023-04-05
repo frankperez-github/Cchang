@@ -14,7 +14,6 @@ export default function Home() {
 
   useEffect(()=>
   {
-    localStorage.clear()
     if(localStorage.getItem("ratedProjects") === null)
     {
       const ratedProjects = [{"id":0, "stars":0}]
