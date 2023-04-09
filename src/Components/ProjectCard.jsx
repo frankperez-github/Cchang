@@ -2,6 +2,7 @@ import Image from "next/image";
 
 function ProjectCard({project}) {
     return(
+        project !== undefined &&
         <div className="ProjectCard">
             <Image alt="projectImage" fill src={project.principalImage} className="image"/>
             <div className="projectInfo">

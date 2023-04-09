@@ -4,7 +4,9 @@ import Contact from "@/Components/Contact";
 import Header from "@/Components/Header";
 import { useContext, useEffect, useState } from "react";
 import SiteContext from "@/Context/siteContext";
+import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore"
 import { useRouter } from "next/router";
+import { db } from "@/firebase/firebase";
 
 
 function Project() {
@@ -53,20 +55,24 @@ function Project() {
         "stars": 0,
         "reviews": 0}
     )
+    const fetchProject = async()=>{
+        const userRef = doc(db, "Projects", id)
+        const docSnap = await getDoc(userRef)
+        if (docSnap.exists()) {
+            const project = docSnap.data()
+            setProject(project)
+        }
+    }
 
     useEffect(()=>{
-        // var returned = fetchProjects()
-        // console.log(returned)
-        if(!id)
-        {
-            return
-        }
         setProject(projects[id])
+        fetchProject()
+
     }, [projects])  
 
 
     return(
-        project !== undefined &&
+        project !== undefined ?
         <>
             <div className="mobileHidden">
                 <Header />
@@ -161,12 +167,11 @@ function Project() {
                     </p>
                     <h2>Califica nuestro trabajo</h2>
                     <div className="reviews completeReview">
-                    <Image onClick={()=>(handleReview(1))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image onClick={()=>(handleReview(2))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image onClick={()=>(handleReview(3))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image onClick={()=>(handleReview(4))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image onClick={()=>(handleReview(5))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    
+                        <Image onClick={()=>(handleReview(1))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                        <Image onClick={()=>(handleReview(2))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                        <Image onClick={()=>(handleReview(3))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                        <Image onClick={()=>(handleReview(4))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                        <Image onClick={()=>(handleReview(5))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
                     </div>
                 </div>
                 <div className="right column">
@@ -174,6 +179,8 @@ function Project() {
                 </div>
             </div>
         </>
+        : 
+        <h1>Loading Project ...</h1>
     );
 }
 export default Project

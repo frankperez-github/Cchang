@@ -15,13 +15,15 @@ import Link from "next/link";
 
 function Projects() {
     const router = useRouter()
-    const { setSelected, filter } = useContext(SiteContext)
+
+    const { setSelected, filter, projects } = useContext(SiteContext)
 
     const handleClick = (id) =>{
         window.open(`/Project/?id=${id}` , "_self")
     }
+
     const { category } = router.query
-    const [projects, setProjects] = useState([])
+    const [Projects, setProjects] = useState([])
     const [categ, setcateg] = useState(category)
     const [electrics, setElectrics] = useState("/disabledElectr.png")
     const [airs, setAirs] = useState("/disabledIce.png")
@@ -52,10 +54,8 @@ function Projects() {
 
     useEffect(()=>{
         updateCategIcon()
-        console.log(categ)
         setProjects(filter(categ))
         setSelected(1)
-        document.getElementById(0).style.border="none"
     }, [category])
 
 
@@ -80,7 +80,7 @@ function Projects() {
                 <div className="Projects Carrous mobContainer mobileHidden">
                 <Swiper slidesPerView={3}   navigation={true} pagination={true}  modules={[Navigation]} className="mySwiper">
                 {
-                    projects.map(project => (
+                    Projects.map(project => (
                         <SwiperSlide key={project.id} className="slide">
                             <div className="slideElement">
                                 <ProjectCard project={project} />
@@ -94,7 +94,7 @@ function Projects() {
                 </div>
                 <div className="Projects mobContainer desktopHidden">
                 {
-                    projects.map(project => (
+                    Projects.map(project => (
                             <div key={project.id} className="slideElement">
                                 <ProjectCard project={project} />
                                 <button onClick={()=>handleClick(project.id)} className="siteButton extraLarge">Ver Más</button>

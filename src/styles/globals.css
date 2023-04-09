@@ -258,6 +258,7 @@ textarea
 
 }
 .backArrow{
+  background-color: #ECECEF;
   width: 20%;
   margin-right: 10%;
 }
@@ -269,15 +270,12 @@ textarea
 }
 .backArrow
 {
-  background-color: rgb(14, 14, 97);
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 3% 2%;
   height: 20vh;
-  border-color: rgb(214, 213, 213);
   align-items: top;
-  color: #ffffff;
 }
 .arrowAndTitle
 {
@@ -589,7 +587,7 @@ textarea
   {
     height: 1%;
     margin-top: -25%;
-    background-color: white;
+    background-color: #ECECEF;
     padding: 0;
     color: black;
   }

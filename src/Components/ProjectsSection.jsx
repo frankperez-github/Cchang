@@ -6,6 +6,7 @@ function Projects(){
     const { projects } = useContext(SiteContext)
 
     return(
+        projects.length > 0 &&
         <div className="Projects mobContainer">
             <h2 className='desktopHidden'>Proyectos</h2>
             <ProjectCard project={projects[1]}/>

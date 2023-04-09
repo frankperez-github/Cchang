@@ -20,11 +20,9 @@ export const SiteContextProvider = ({children})=>{
                 Object.values(data).map((project)=>
                 {
                     setProjects(project)
-                    console.log(projects)
                 })
             }
         })
-        return projects
     }
 
     // const projects = [
@@ -193,6 +191,10 @@ export const SiteContextProvider = ({children})=>{
     const filter=(category)=>
     {
         var filteredProjects = []
+        if(projects.length === 0)
+        {
+            fetchProjects()
+        }
         projects.map((project)=>
         {
             if(project.category === category)
