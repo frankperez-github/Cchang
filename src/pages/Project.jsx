@@ -4,9 +4,7 @@ import Contact from "@/Components/Contact";
 import Header from "@/Components/Header";
 import { useContext, useEffect, useState } from "react";
 import SiteContext from "@/Context/siteContext";
-import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore"
 import { useRouter } from "next/router";
-import { db } from "@/firebase/firebase";
 
 
 function Project() {
@@ -56,7 +54,7 @@ function Project() {
         "reviews": 0}
     )
     const fetchProject = async()=>{
-        const userRef = doc(db, "Projects", id)
+        const userRef = doc(db, "users", params.id)
         const docSnap = await getDoc(userRef)
         if (docSnap.exists()) {
             const project = docSnap.data()
@@ -66,8 +64,10 @@ function Project() {
 
     useEffect(()=>{
         setProject(projects[id])
-        fetchProject()
-
+        if(projects.length === 0)
+        {
+            fetchProjects()
+        }
     }, [projects])  
 
 
