@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 function Project() {
 
-    const { setRating, projects, updateRating } = useContext(SiteContext)
+    const { setRating, projects, updateRating, fetchProjects } = useContext(SiteContext)
     const router = useRouter()
     const { id } = router.query
 
@@ -22,7 +22,7 @@ function Project() {
         //Update rating
         JSON.parse(localStorage.getItem("ratedProjects")).map((rating)=>
         {
-        if(rating.id === id)
+            if(rating.id === id)
             {
                 if(window.confirm("Ya usted valoró este proyecto. Desea volver a valorarlo?"))
                 {
@@ -32,7 +32,7 @@ function Project() {
                 }
             }
         })
-        //new rating
+        //New rating
         if(update === false)
         {
             setRating(id, stars, true)
@@ -55,15 +55,18 @@ function Project() {
     )
 
     useEffect(()=>{
+        // var returned = fetchProjects()
+        // console.log(returned)
         if(!id)
         {
             return
         }
-        setProject(projects[id-1])
-    }, [id, projects])  
+        setProject(projects[id])
+    }, [projects])  
 
 
     return(
+        project !== undefined &&
         <>
             <div className="mobileHidden">
                 <Header />
@@ -96,9 +99,9 @@ function Project() {
 
                 <div className="projectImages">
                     {
-                        (project.secondaryImages).map(imagePath=>
+                        (project.secondaryImages).map((imagePath, index)=>
                             (
-                                <Image key={imagePath} className="image projectImagePrev" src={imagePath} fill alt="*"/>
+                                <Image key={index} className="image projectImagePrev" src={imagePath} fill alt="*"/>
                             ))
                         }
                 </div>
@@ -143,9 +146,9 @@ function Project() {
 
                     <div className="projectImages">
                         {
-                            (project.secondaryImages).map(imagePath=>
+                            (project.secondaryImages).map((imagePath, index) =>
                                 (
-                                    <Image key={imagePath} className="image projectImagePrev" src={imagePath} fill alt="*"/>
+                                    <Image key={index} className="image projectImagePrev" src={imagePath} fill alt="*"/>
                                 ))
                         }
                         

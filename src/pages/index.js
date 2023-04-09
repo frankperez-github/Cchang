@@ -12,13 +12,16 @@ import SiteContext from '@/Context/siteContext'
 
 export default function Home() {
 
+  const {fetchProjects} = useContext(SiteContext)
+
   useEffect(()=>
   {
+    fetchProjects()
+    localStorage.clear()
     if(localStorage.getItem("ratedProjects") === null)
     {
-      const ratedProjects = [{"id":0, "stars":0}]
+      const ratedProjects = [{"id":0, "stars":-1}]
       localStorage.setItem("ratedProjects", JSON.stringify(ratedProjects))
-      console.log("aqui:"+JSON.parse(localStorage.getItem("ratedProjects")))
     }
   }, [])
 
