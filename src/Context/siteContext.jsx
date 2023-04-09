@@ -2,6 +2,7 @@ import { onValue } from "firebase/database";
 import { createContext, useState } from "react";
 import { db } from "../firebase/firebase"
 import { set, ref } from "firebase/database"
+import {doc, getDoc} from "firebase/firestore"
 
 
 const SiteContext = createContext()
@@ -11,18 +12,14 @@ export const SiteContextProvider = ({children})=>{
     const [selected, setSelected] = useState(0)
     const [projects, setProjects] = useState([])
 
-    const fetchProjects=()=>
-    {
-        onValue(ref(db), (snapshot)=>{
-            const data = snapshot.val();
-            if (data !== null)
-            {
-                Object.values(data).map((project)=>
-                {
-                    setProjects(project)
-                })
-            }
-        })
+    
+    const fetchProjects = async()=>{
+        const projectsRef = doc(db, "Projects", "*")
+        const docSnap = await getDoc(projectsRef)
+        if (docSnap.exists()) {
+            const project = docSnap.data()
+            setProjects(project)
+        }
     }
 
     // const projects = [

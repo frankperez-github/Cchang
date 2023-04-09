@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 function Project() {
 
-    const { setRating, projects, updateRating, fetchProjects } = useContext(SiteContext)
+    const { setRating, projects, updateRating} = useContext(SiteContext)
     const router = useRouter()
     const { id } = router.query
 
@@ -53,21 +53,9 @@ function Project() {
         "stars": 0,
         "reviews": 0}
     )
-    const fetchProject = async()=>{
-        const userRef = doc(db, "users", params.id)
-        const docSnap = await getDoc(userRef)
-        if (docSnap.exists()) {
-            const project = docSnap.data()
-            setProject(project)
-        }
-    }
 
     useEffect(()=>{
         setProject(projects[id])
-        if(projects.length === 0)
-        {
-            fetchProjects()
-        }
     }, [projects])  
 
 
