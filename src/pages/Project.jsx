@@ -5,6 +5,8 @@ import Header from "@/Components/Header";
 import { useContext, useEffect, useState } from "react";
 import SiteContext from "@/Context/siteContext";
 import { useRouter } from "next/router";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/firebase/firebase";
 
 
 function Project() {
@@ -53,9 +55,18 @@ function Project() {
         "stars": 0,
         "reviews": 0}
     )
+    const fetchProject = async()=>{
+        const projectsRef = doc(db, "Projects", id)
+        const docSnap = await getDoc(projectsRef)
+        if (docSnap.exists()) {
+            const project = docSnap.data()
+            setProject(project)
+        }
+    }
 
     useEffect(()=>{
-        setProject(projects[id])
+        fetchProject()
+        console.log(project)
     }, [projects])  
 
 

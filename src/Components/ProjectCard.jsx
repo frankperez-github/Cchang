@@ -4,7 +4,7 @@ function ProjectCard({project}) {
     return(
         project !== undefined &&
         <div className="ProjectCard">
-            <Image alt="projectImage" fill src="https://firebasestorage.googleapis.com/v0/b/cchang-app-173ef.appspot.com/o/CS50x.png?alt=media&token=93de42a4-7dc1-4685-8f9b-be5aac5a79af" className="image"/>
+            <Image alt="projectImage" fill src={project.principalImage} className="image"/>
             <div className="projectInfo">
                 <p>{project.title.keyWords} {project.title.text}</p>
                 <div className="projectFooter">
