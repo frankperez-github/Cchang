@@ -13,97 +13,27 @@ export const SiteContextProvider = ({children})=>{
     const [projects, setProjects] = useState([])
 
     
-    const fetchProjects = async()=>{
-        const projectsRef = doc(db, "Projects", "*")
-        const docSnap = await getDoc(projectsRef)
-        if (docSnap.exists()) {
-            const project = docSnap.data()
-            setProjects(project)
-        }
+    const fetchProjects =()=>{
+       
+        console.log("fetching")
+        onValue(ref(db), (snapshot)=>
+        {
+            const data = snapshot.val()
+            if(data !== null)
+            {
+                Object.values(data).map((project)=>
+                {
+                    setProjects(...projects, project)
+                })
+            }
+       })
+        // const projectsRef = doc(db, "Projects", "*")
+        // const docSnap = await getDoc(projectsRef)
+        // if (docSnap.exists()) {
+        //     const project = docSnap.data()
+        //     setProjects(project)
+        // }
     }
-
-    // const projects = [
-    //     {
-    //         "id": 1,
-    //         "principalImage":"/projectImage.png",
-    //         "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
-    //         "title":{
-    //             "keyWords":"Remodelación",
-    //             "text": "de las oficinas comerciales de Nissan en Cuba"
-    //         },
-    //         "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
-    //         "category": "clima",
-    //         "day": 21,
-    //         "month": 3,
-    //         "year": 2022,
-    //         "stars": 3,
-    //         "reviews": [3,4,5,2,1]
-    //     },
-    //     {
-    //         "id": 2,
-    //         "principalImage":"/projectImage.png",
-    //         "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
-    //         "title":{
-    //             "keyWords":"Remodelación",
-    //             "text": "de las oficinas comerciales de Nissan en Cuba"
-    //         },
-    //         "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
-    //         "category": "clima",
-    //         "day": 21,
-    //         "month": 3,
-    //         "year": 2022,
-    //         "stars": 2,
-    //         "reviews": [3,4,5,2,1]
-    //     },
-    //     {
-    //         "id": 3,
-    //         "principalImage":"/projectImage.png",
-    //         "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
-    //         "title":{
-    //             "keyWords":"Remodelación",
-    //             "text": "de las oficinas comerciales de Nissan en Cuba"
-    //         },
-    //         "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
-    //         "category": "refrigeración",
-    //         "day": 21,
-    //         "month": 3,
-    //         "year": 2022,
-    //         "stars": 5,           
-    //         "reviews": [3,4,5,2,1]
-    //     },
-    //     {
-    //         "id": 4,
-    //         "principalImage":"/projectImage.png",
-    //         "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
-    //         "title":{
-    //             "keyWords":"Remodelación",
-    //             "text": "de las oficinas comerciales de Nissan en Cuba"
-    //         },
-    //         "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
-    //         "category": "clima",
-    //         "day": 21,
-    //         "month": 3,
-    //         "year": 2022,
-    //         "stars": 3,
-    //         "reviews": [3,4,5,2,1]
-    //     },
-    //     {
-    //         "id": 5,
-    //         "principalImage":"/projectImage.png",
-    //         "secondaryImages":[ "/projectImage1.png","/projectImage1.png","/projectImage1.png","/projectImage1.png"],
-    //         "title":{
-    //             "keyWords":"Remodelación",
-    //             "text": "de las oficinas comerciales de Nissan en Cuba"
-    //         },
-    //         "description":"Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort; con un personal competente y comprometido con satisfacer las exigencias de los clientes",
-    //         "category": "reparaciones",
-    //         "day": 21,
-    //         "month": 3,
-    //         "year": 2022,
-    //         "stars": 4,
-    //         "reviews": [3,4,5,2,1]
-    //     }
-    // ]
 
     
     const updateRating=(id, stars)=>

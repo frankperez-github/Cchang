@@ -11,7 +11,7 @@ import { db } from "@/firebase/firebase";
 
 function Project() {
 
-    const { setRating, projects, updateRating} = useContext(SiteContext)
+    const { setRating, projects, updateRating, fetchProjects} = useContext(SiteContext)
     const router = useRouter()
     const { id } = router.query
 
@@ -55,18 +55,28 @@ function Project() {
         "stars": 0,
         "reviews": 0}
     )
-    const fetchProject = async()=>{
-        const projectsRef = doc(db, "Projects", id)
-        const docSnap = await getDoc(projectsRef)
-        if (docSnap.exists()) {
-            const project = docSnap.data()
-            setProject(project)
-        }
-    }
+    // const fetchProject = async()=>{
+    //     try
+    //     {
+    //         const projectsRef = doc(db, "Projects", id)
+    //         const docSnap = await getDoc(projectsRef)
+    //         if (docSnap.exists()) {
+    //             const project = docSnap.data()
+    //             setProject(project)
+    //         }
+    //     }
+    //     catch(e)
+    //     {
+    //         console.log(e)
+    //     }
+    // }
 
     useEffect(()=>{
-        fetchProject()
-        console.log(project)
+        if(projects.length === 0)
+        {
+            fetchProjects()
+        }
+        setProject(projects[id])
     }, [projects])  
 
 
