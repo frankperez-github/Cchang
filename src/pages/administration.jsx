@@ -1,22 +1,12 @@
 import SiteContext from "@/Context/siteContext"
 import { useContext, useEffect, useState } from "react"
+import {v4 as uuidv4} from 'uuid'
+
+
 function admin() {
     const {projects, fetchProjects} = useContext(SiteContext)
     const [action, setAction] = useState("")
-    const[project, setProject] = useState({"id": 0,
-    "principalImage":"",
-    "secondaryImages":[],
-    "title":{
-        "keyWords": "",
-        "text": ""
-    },
-    "category":"",
-    "description":"",
-    "day": 0,
-    "month": 0,
-    "year": 0,
-    "stars": 0,
-    "reviews": []})
+    const[project, setProject] = useState({})
 
     useEffect(()=>
     {   
@@ -24,7 +14,6 @@ function admin() {
         {
             fetchProjects()
         }
-        console.log(projects)
         const element = document.getElementById(`${action}`)
         document.getElementById("create").style.display="none"
         document.getElementById("update").style.display="none"
@@ -66,11 +55,56 @@ function admin() {
         alert("Proyecto Eliminado correctamente")
         fetchProjects()
     }
+    const Put = async(id)=>
+    {
+        Update()
+        const response = await fetch(`http://localhost:5000/projects/${id}`,
+        {
+            method: 'PUT',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(project)
+        })
+        fetchProjects()
+    }
+    const Update = ()=>
+    {
+        setProject({
+            "id": project.id,
+            "principalImage": project.principalImage === imagePath(document.getElementById("Update_principalImg").value) ? project.principalImage : imagePath(document.getElementById("Update_principalImg").value),
+            "secondaryImages": [
+                project.secondaryImages[0] === imagePath(document.getElementById("Update_secImg1").value) ? project.secondaryImages[0] : imagePath(document.getElementById("Update_secImg1").value), 
+                project.secondaryImages[1] === imagePath(document.getElementById("Update_secImg2").value) ? project.secondaryImages[1] : imagePath(document.getElementById("Update_secImg1").value), 
+                project.secondaryImages[2] === imagePath(document.getElementById("Update_secImg3").value) ? project.secondaryImages[2] : imagePath(document.getElementById("Update_secImg1").value), 
+                project.secondaryImages[3] === imagePath(document.getElementById("Update_secImg4").value) ? project.secondaryImages[3] : imagePath(document.getElementById("Update_secImg1").value), 
+            ],
+            "title": {
+                "keyWords":document.getElementById("Update_key-word").value, 
+                "text":document.getElementById("Update_title").value
+            },
+            "category": document.getElementById("Update_category").value,
+            "description": document.getElementById("Update_description").value,
+            "day": document.getElementById("Update_day").value,
+            "month": document.getElementById("Update_month").value,
+            "year": document.getElementById("Update_year").value,
+            "stars": project.stars,
+            "reviews": project.reviews
+        })
+    }
+
+    const imagePath=(image)=>
+    {
+        if(image !== null)
+        {
+            return ""
+        }
+    }
     
-    const create=()=>
+    const updateNew=()=>
     {
         const newProject = {
-            "id": projects.length,
+            "id": uuidv4(),
             "principalImage": imagePath(document.getElementById("principalImg").value),
             "secondaryImages": [imagePath(document.getElementById("secImg1").value), imagePath(document.getElementById("secImg2").value), imagePath(document.getElementById("secImg3").value), imagePath(document.getElementById("secImg4").value)],
             "title": {
@@ -83,20 +117,22 @@ function admin() {
             "month": document.getElementById("month").value,
             "year": document.getElementById("year").value,
             "stars": 0,
-            "reviews": []
+            "reviews": [0]
         }
-        
-        if(!dateIsValid(new Date(`${newProject.year}-${newProject.month}-${newProject.day}`)))
+        setProject(newProject)
+    }
+    const create=()=>
+    {
+        if(!dateIsValid(new Date(`${project.year}-${project.month}-${project.day}`)))
         {
             alert("Fecha no valida")
         }
-        else if(newProject.description === "" || newProject.title.keyWords ==="" || newProject.title.text==="")
+        else if(project.description === "" || project.title.keyWords === "" || project.title.text === "")
         {
             alert("Debe rellenar todos los campos correctamente")
         }
         else
         {
-            setProject(newProject)
             Post()
         }
     }
@@ -108,15 +144,7 @@ function admin() {
         }
     }
 
-    const imagePath=(image)=>
-    {
-        if(image !== null)
-        {
-            return ""
-        }
-    }
-
-    
+    const [updating, setUpdating] = useState(false)
     return(
         <div className="administration mobContainer">
             <h1>Cchang Administration</h1>
@@ -127,25 +155,23 @@ function admin() {
         
             <div id="create">
                 <form action="">
-                    <h3>id: {projects.length}</h3>
-                    <br/>
                     
                     <h3>Título:</h3>
-                    <input type="text" id="key-word" placeholder="palabra clave"/>
-                    <input type="text" id="title" placeholder="resto del título"/>
+                    <input onChange={()=>updateNew()} type="text" id="key-word" placeholder="palabra clave"/>
+                    <input onChange={()=>updateNew()} type="text" id="title" placeholder="resto del título"/>
 
                     <h3>Imagen principal:</h3>
-                    <input id="principalImg" type="file" accept="image/*"/>
+                    <input onChange={()=>updateNew()} id="principalImg" type="file" accept="image/*"/>
 
                     <h3>Imagenes secundarias (máximo 4):</h3>
-                    <input type="file" id="secImg1" accept="image/*"/>
-                    <input type="file" id="secImg2" accept="image/*"/>
-                    <input type="file" id="secImg3" accept="image/*"/>
-                    <input type="file" id="secImg4" accept="image/*"/>
+                    <input onChange={()=>updateNew()} type="file" id="secImg1" accept="image/*"/>
+                    <input onChange={()=>updateNew()} type="file" id="secImg2" accept="image/*"/>
+                    <input onChange={()=>updateNew()} type="file" id="secImg3" accept="image/*"/>
+                    <input onChange={()=>updateNew()} type="file" id="secImg4" accept="image/*"/>
                     
 
                     <h3>Categoría:</h3>
-                    <select name="category" id="category">
+                    <select onChange={()=>updateNew()} name="category" id="category">
                         <option value="clima">clima</option>
                         <option value="reparaciones">reparaciones</option>
                         <option value="eléctricos">eléctricos</option>
@@ -155,18 +181,70 @@ function admin() {
                     <textarea name="description" id="description" cols="30" rows="10"></textarea>
 
                     <h3>Día:</h3>
-                    <input id="day" type="number" />
+                    <input onChange={()=>updateNew()} id="day" type="number" />
 
                     <h3>Mes:</h3>
-                    <input id="month" type="number" />
+                    <input onChange={()=>updateNew()} id="month" type="number" />
 
                     <h3>Año:</h3>
-                    <input id="year" type="number" />
+                    <input onChange={()=>updateNew()} id="year" type="number" />
                 </form> 
                 <button className="siteButton largeButton" onClick={create}>Crear</button>
             </div>
             <div id="update">
-                "actualizar"
+            {
+                !updating ?
+                projects.map((project, index)=>
+                (
+                    project.title !== undefined &&
+                        <div key={index} className="projectRow">
+                            <h3>{project.id}.  {project.title.keyWords} {project.title.text}</h3>
+                            <button onClick={()=>(setUpdating(true), setProject(project))} className="siteButton shortButton">Actualizar</button>
+                        </div>
+                ))
+                :
+                <>
+                    <form action="">
+                        <h3 id="id">id: {project.id}</h3>
+                        <h3>Título:</h3>
+                        <input type="text" id="Update_key-word" onChange={()=>Update()} defaultValue={project.title.keyWords} placeholder="palabra clave"/>
+                        <input type="text" id="Update_title" onChange={()=>Update()} defaultValue={project.title.text} placeholder="resto del título"/>
+
+                        <p>A menos que decida cambiarlas, se mantendrán las imagenes anteriores</p>
+                        <h3>Imagen principal:</h3>
+                        <input id="Update_principalImg" type="file" accept="image/*"/>
+
+                        <h3>Imagenes secundarias (máximo 4):</h3>
+                        <input type="file" id="Update_secImg1" accept="image/*"/>
+                        <input type="file" id="Update_secImg2" accept="image/*"/>
+                        <input type="file" id="Update_secImg3" accept="image/*"/>
+                        <input type="file" id="Update_secImg4" accept="image/*"/>
+                        
+
+                        <h3>Categoría:</h3>
+                        <select name="category" onChange={()=>Update()} defaultValue={project.category} id="Update_category">
+                            <option value="clima">clima</option>
+                            <option value="reparaciones">reparaciones</option>
+                            <option value="eléctricos">eléctricos</option>
+                        </select>
+
+                        <h3>Descripción:</h3>
+                        <textarea name="description" onChange={()=>Update()} defaultValue={project.description} id="Update_description" cols="30" rows="10"></textarea>
+
+                        <h3>Día:</h3>
+                        <input id="Update_day" type="number" onChange={()=>Update()} defaultValue={project.day}/>
+
+                        <h3>Mes:</h3>
+                        <input id="Update_month" type="number" onChange={()=>Update()} defaultValue={project.month}/>
+
+                        <h3>Año:</h3>
+                        <input id="Update_year" type="number" onChange={()=>Update()} defaultValue={project.year}/>
+                    </form>
+                    <button className="siteButton" onClick={()=>(setUpdating(false), Put(project.id))}>Update</button>
+                    <button className="siteButton" onClick={()=>setUpdating(false)}>Cancel</button>
+                </>
+            }
+
             </div>
             <div id="delete">
                 {

@@ -5,8 +5,6 @@ import Header from "@/Components/Header";
 import { useContext, useEffect, useState } from "react";
 import SiteContext from "@/Context/siteContext";
 import { useRouter } from "next/router";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "@/firebase/firebase";
 
 
 function Project() {
@@ -57,9 +55,9 @@ function Project() {
     )
     
 
-    useEffect(()=>{
+    useEffect(()=>{3
         fetchProjects()
-        setProject(projects[id-1])
+        setProject(projects.find((x)=>(x.id === id)))
     }, [id])  
 
 

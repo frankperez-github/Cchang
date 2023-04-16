@@ -20,6 +20,7 @@ export const SiteContextProvider = ({children})=>{
     
     const updateRating=(id, stars)=>
     {
+        const currProject = projects.find((x)=>(x.id === id))
         var prev = 0
         //Update user's reviews
         var oldData = JSON.parse(localStorage.getItem("ratedProjects"))
@@ -36,12 +37,12 @@ export const SiteContextProvider = ({children})=>{
 
         //Update project's review
         var found = false
-        projects[id-1].reviews.map((review)=>
+        currProject.reviews.map((review)=>
         {
             if (review === prev && !found)
             {
-                const index = projects[id-1].reviews.indexOf(review)
-                projects[id-1].reviews[index] = stars
+                const index = currProject.reviews.indexOf(review)
+                currProject.reviews[index] = stars
                 found = true
             }
         })
@@ -52,7 +53,10 @@ export const SiteContextProvider = ({children})=>{
     const [updated, setUpdated]=useState({"id": 0,
     "principalImage":"",
     "secondaryImages":[],
-    "title":{},
+    "title":{
+        "keyWords":"",
+        "text":""
+    },
     "category":"",
     "description":"",
     "day": 0,
@@ -60,7 +64,9 @@ export const SiteContextProvider = ({children})=>{
     "year": 0,
     "stars": 0,
     "reviews": []})
+
     const [id, setId]= useState(0)
+    
     useEffect(()=>
     {
         Put(id)
@@ -80,23 +86,25 @@ export const SiteContextProvider = ({children})=>{
             })
         }
     }
+    
     const setRating= async (id, stars, New)=>{
 
+        const currProject = projects.find((x)=>(x.id === id))
         setId(id)
         //calculating rating to project
         var updating = JSON.parse(localStorage.getItem("ratedProjects")).filter((review)=>review.id===id)
         if (updating.length === 0)
         {
-            projects[id-1].reviews = [stars, ...projects[id-1].reviews]
+            currProject.reviews = [stars, ...currProject.reviews]
         }
         
         var newRating = 0
-        projects[id-1].reviews.map(review=>
+        currProject.reviews.map(review=>
         {
             newRating+=review
         })
-        newRating = newRating / projects[id-1].reviews.length
-        projects[id-1].stars = newRating >= 4.7 ? 5 : Math.trunc(newRating)
+        newRating = newRating / currProject.reviews.length
+        currProject.stars = newRating >= 4.7 ? 5 : Math.trunc(newRating)
         
 
         //Creating new rating to this project
@@ -104,7 +112,7 @@ export const SiteContextProvider = ({children})=>{
         {
             //Storaging rating to this user
             const oldData = JSON.parse(localStorage.getItem("ratedProjects"))
-            const newElement = {"id":id, "stars":projects[id-1].stars} 
+            const newElement = {"id":id, "stars":currProject.stars} 
             localStorage.setItem("ratedProjects", JSON.stringify([newElement,...oldData]))
             New = false
         }
@@ -113,16 +121,16 @@ export const SiteContextProvider = ({children})=>{
         {
             //Updating in database
             setUpdated({"id": id,
-            "principalImage":projects[id-1].principalImage,
-            "secondaryImages":projects[id-1].secondaryImages,
-            "title":projects[id-1].title,
-            "category": projects[id-1].category,
-            "description":projects[id-1].description,
-            "day": projects[id-1].day,
-            "month": projects[id-1].month,
-            "year": projects[id-1].year,
-            "stars": projects[id-1].stars,
-            "reviews": projects[id-1].reviews})
+            "principalImage":currProject.principalImage,
+            "secondaryImages":currProject.secondaryImages,
+            "title":currProject.title,
+            "category": currProject.category,
+            "description":currProject.description,
+            "day": currProject.day,
+            "month": currProject.month,
+            "year": currProject.year,
+            "stars": currProject.stars,
+            "reviews": currProject.reviews})
         }
     }
 

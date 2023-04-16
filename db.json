@@ -3,18 +3,49 @@
     {
       "id": 3,
       "principalImage": "",
-      "secondaryImages": [],
+      "secondaryImages": [
+        "",
+        "",
+        "",
+        ""
+      ],
       "title": {
-        "keyWords": "",
-        "text": ""
+        "keyWords": "Electricidad",
+        "text": "para todos"
       },
-      "category": "",
-      "description": "",
-      "day": 0,
-      "month": 0,
-      "year": 0,
-      "stars": 0,
-      "reviews": []
+      "category": "eléctricos",
+      "description": "Test Description",
+      "day": "24",
+      "month": "9",
+      "year": "2002",
+      "stars": 1,
+      "reviews": [
+        1
+      ]
+    },
+    {
+      "id": "39700116-ac83-44f3-a0fd-c8a939526acc",
+      "principalImage": "",
+      "secondaryImages": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "title": {
+        "keyWords": "Reparacion",
+        "text": " de este sitio"
+      },
+      "category": "eléctricos",
+      "description": "Description de prueba",
+      "day": "25",
+      "month": "9",
+      "year": "2002",
+      "stars": 1,
+      "reviews": [
+        1,
+        1
+      ]
     }
   ]
 }
