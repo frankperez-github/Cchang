@@ -6,9 +6,11 @@ function NavBar() {
     const {selected, setSelected} = useContext(SiteContext)
 
     useEffect(() => {
+        var prevSelected = document.getElementById((selected+3)%2)
         var selectedNav = document.getElementById(selected)
+        prevSelected.classList.remove("selected")
         selectedNav.classList.add("selected")
-      });
+      }, [selected]);
    return(
         <div className="navBar">
             <Link href="/" id="0" onClick={()=>setSelected(0)}>

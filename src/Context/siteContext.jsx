@@ -17,7 +17,6 @@ export const SiteContextProvider = ({children})=>{
             setProjects(json)    
         })
     }
-
     
     const updateRating=(id, stars)=>
     {
@@ -69,14 +68,17 @@ export const SiteContextProvider = ({children})=>{
     
     const Put = async(id)=>
     {
-        const response = await fetch(`http://localhost:5000/projects/${id}`,
+        if(id !== 0)
         {
-            method: 'PUT',
-            headers:{
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(updated)
-        })
+            const response = await fetch(`http://localhost:5000/projects/${id}`,
+            {
+                method: 'PUT',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updated)
+            })
+        }
     }
     const setRating= async (id, stars, New)=>{
 
