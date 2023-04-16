@@ -55,29 +55,12 @@ function Project() {
         "stars": 0,
         "reviews": 0}
     )
-    // const fetchProject = async()=>{
-    //     try
-    //     {
-    //         const projectsRef = doc(db, "Projects", id)
-    //         const docSnap = await getDoc(projectsRef)
-    //         if (docSnap.exists()) {
-    //             const project = docSnap.data()
-    //             setProject(project)
-    //         }
-    //     }
-    //     catch(e)
-    //     {
-    //         console.log(e)
-    //     }
-    // }
+    
 
     useEffect(()=>{
-        if(projects.length === 0)
-        {
-            fetchProjects()
-        }
-        setProject(projects[id])
-    }, [projects])  
+        fetchProjects()
+        setProject(projects[id-1])
+    }, [id])  
 
 
     return(
@@ -96,7 +79,7 @@ function Project() {
                     <h2>Explicación</h2>
                     <div className="reviews">
                     {
-                            [... Array(project.stars).keys()].map((number) =>
+                        [... Array(project.stars).keys()].map((number) =>
                                 <Image key={number} className="image" src="/star.png" fill alt="*"/>
                             )
                         }

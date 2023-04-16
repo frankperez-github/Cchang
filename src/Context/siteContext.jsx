@@ -1,9 +1,5 @@
-import { onValue } from "firebase/database";
-import { createContext, useState } from "react";
-import { db } from "../firebase/firebase"
-import { set, ref } from "firebase/database"
-import {doc, getDoc} from "firebase/firestore"
-
+import { setIndexConfiguration } from "firebase/firestore";
+import { createContext, useState, axios, useEffect } from "react";
 
 const SiteContext = createContext()
 
@@ -13,26 +9,13 @@ export const SiteContextProvider = ({children})=>{
     const [projects, setProjects] = useState([])
 
     
-    const fetchProjects =()=>{
+    const fetchProjects = ()=>{
        
-        console.log("fetching")
-        onValue(ref(db), (snapshot)=>
-        {
-            const data = snapshot.val()
-            if(data !== null)
-            {
-                Object.values(data).map((project)=>
-                {
-                    setProjects(...projects, project)
-                })
-            }
-       })
-        // const projectsRef = doc(db, "Projects", "*")
-        // const docSnap = await getDoc(projectsRef)
-        // if (docSnap.exists()) {
-        //     const project = docSnap.data()
-        //     setProjects(project)
-        // }
+        fetch(`http://localhost:5000/projects`)
+        .then(res =>res.json())
+        .then(json=>{
+            setProjects(json)    
+        })
     }
 
     
@@ -54,12 +37,12 @@ export const SiteContextProvider = ({children})=>{
 
         //Update project's review
         var found = false
-        projects[id].reviews.map((review)=>
+        projects[id-1].reviews.map((review)=>
         {
             if (review === prev && !found)
             {
-                const index = projects[id].reviews.indexOf(review)
-                projects[id].reviews[index] = stars
+                const index = projects[id-1].reviews.indexOf(review)
+                projects[id-1].reviews[index] = stars
                 found = true
             }
         })
@@ -67,24 +50,51 @@ export const SiteContextProvider = ({children})=>{
 
         setRating(id, stars, false)
     }
-    const setRating=(id, stars, New)=>{
+    const [updated, setUpdated]=useState({"id": 0,
+    "principalImage":"",
+    "secondaryImages":[],
+    "title":{},
+    "category":"",
+    "description":"",
+    "day": 0,
+    "month": 0,
+    "year": 0,
+    "stars": 0,
+    "reviews": []})
+    const [id, setId]= useState(0)
+    useEffect(()=>
+    {
+        Put(id)
+    }, [updated])
+    
+    const Put = async(id)=>
+    {
+        const response = await fetch(`http://localhost:5000/projects/${id}`,
+        {
+            method: 'PUT',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updated)
+        })
+    }
+    const setRating= async (id, stars, New)=>{
 
+        setId(id)
         //calculating rating to project
         var updating = JSON.parse(localStorage.getItem("ratedProjects")).filter((review)=>review.id===id)
-        console.log(updating)
         if (updating.length === 0)
         {
-            projects[id].reviews = [stars, ...projects[id].reviews]
+            projects[id-1].reviews = [stars, ...projects[id-1].reviews]
         }
-        console.log(projects[id].reviews)
         
         var newRating = 0
-        projects[id].reviews.map(review=>
+        projects[id-1].reviews.map(review=>
         {
             newRating+=review
         })
-        newRating = newRating / projects[id].reviews.length
-        projects[id].stars = newRating >= 4.7 ? 5 : Math.trunc(newRating)
+        newRating = newRating / projects[id-1].reviews.length
+        projects[id-1].stars = newRating >= 4.7 ? 5 : Math.trunc(newRating)
         
 
         //Creating new rating to this project
@@ -92,7 +102,7 @@ export const SiteContextProvider = ({children})=>{
         {
             //Storaging rating to this user
             const oldData = JSON.parse(localStorage.getItem("ratedProjects"))
-            const newElement = {"id":id, "stars":projects[id].stars} 
+            const newElement = {"id":id, "stars":projects[id-1].stars} 
             localStorage.setItem("ratedProjects", JSON.stringify([newElement,...oldData]))
             New = false
         }
@@ -100,18 +110,17 @@ export const SiteContextProvider = ({children})=>{
         if(New === false)
         {
             //Updating in database
-            set(ref(db, `/Projects/${id}`),{
-                "id": id,
-                "principalImage":projects[id].principalImage,
-                "secondaryImages":projects[id].secondaryImages,
-                "title":projects[id].title,
-                "description":projects[id].description,
-                "day": projects[id].day,
-                "month": projects[id].month,
-                "year": projects[id].year,
-                "stars": projects[id].stars,
-                "reviews": projects[id].reviews
-            })
+            setUpdated({"id": id,
+            "principalImage":projects[id-1].principalImage,
+            "secondaryImages":projects[id-1].secondaryImages,
+            "title":projects[id-1].title,
+            "category": projects[id-1].category,
+            "description":projects[id-1].description,
+            "day": projects[id-1].day,
+            "month": projects[id-1].month,
+            "year": projects[id-1].year,
+            "stars": projects[id-1].stars,
+            "reviews": projects[id-1].reviews})
         }
     }
 
