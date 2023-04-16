@@ -337,6 +337,18 @@ textarea
   padding-top: 5%;
   padding-left: 2%;
 }
+.projectRow h3
+{
+  padding-top: 3%;
+  width: 80%;
+}
+.projectRow
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center !important;
+  padding: 1% 0;
+}
 @media (max-width: 1024px) {
   h1{
     font-size: 27px;

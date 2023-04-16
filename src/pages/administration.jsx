@@ -3,7 +3,20 @@ import { useContext, useEffect, useState } from "react"
 function admin() {
     const {projects, fetchProjects} = useContext(SiteContext)
     const [action, setAction] = useState("")
-    const[project, setProject] = useState(projects[0])
+    const[project, setProject] = useState({"id": 0,
+    "principalImage":"",
+    "secondaryImages":[],
+    "title":{
+        "keyWords": "",
+        "text": ""
+    },
+    "category":"",
+    "description":"",
+    "day": 0,
+    "month": 0,
+    "year": 0,
+    "stars": 0,
+    "reviews": []})
 
     useEffect(()=>
     {   
@@ -41,6 +54,18 @@ function admin() {
         alert("Proyecto creado correctamente")
         window.open(window.location.href, "_self")
     }
+    const Delete = async(id)=>
+    {
+        const response = await fetch(`http://localhost:5000/projects/${id}`,
+        {
+            method: 'DELETE',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+        })
+        alert("Proyecto Eliminado correctamente")
+        fetchProjects()
+    }
     
     const create=()=>
     {
@@ -74,7 +99,13 @@ function admin() {
             setProject(newProject)
             Post()
         }
-        // if(isValid).
+    }
+    const remove=(project)=>
+    {
+        if(confirm("Desea borrar el proyecto?"))
+        {
+            Delete(project.id)
+        }
     }
 
     const imagePath=(image)=>
@@ -139,13 +170,14 @@ function admin() {
             </div>
             <div id="delete">
                 {
-                projects.map(project=>
-                {
-                    project !== undefined &&
-                    <div className="projectRow">
-                        <h3>{project.id}. </h3>
-                    </div>
-                })
+                projects.map((project, index)=>
+                (
+                    project.title !== undefined &&
+                        <div key={index} className="projectRow">
+                            <h3>{project.id}.  {project.title.keyWords} {project.title.text}</h3>
+                            <button onClick={()=>remove(project)} className="siteButton shortButton">Borrar</button>
+                        </div>
+                ))
                 }
             </div>
         </div>
