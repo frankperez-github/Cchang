@@ -122,7 +122,7 @@ function Admin() {
             "month": document.getElementById("month").value,
             "year": document.getElementById("year").value,
             "stars": 0,
-            "reviews": [0]
+            "reviews": []
         }
         setProject(newProject)
         console.log(newProject.principalImage)
@@ -152,6 +152,7 @@ function Admin() {
     }
 
     const [updating, setUpdating] = useState(false)
+    
     return(
         <div className="administration mobContainer">
             <h1>Cchang Administration</h1>
@@ -170,10 +171,13 @@ function Admin() {
                     <h3>Imagen principal:</h3>
                     <input onChange={()=>updateNew()} id="principalImg" type="text" />
 
-                    <h3>Imagenes secundarias (máximo 4):</h3>
+                    <h3>Imagenes secundarias:</h3>
                     <input onChange={()=>updateNew()} type="text" id="secImg1" />
+                    <br/><br/>
                     <input onChange={()=>updateNew()} type="text" id="secImg2" />
+                    <br/><br/>
                     <input onChange={()=>updateNew()} type="text" id="secImg3" />
+                    <br/><br/>
                     <input onChange={()=>updateNew()} type="text" id="secImg4" />
                     
 
@@ -221,10 +225,13 @@ function Admin() {
                         <h3>Imagen principal:</h3>
                         <input id="Update_principalImg" type="text" defaultValue={project.principalImage}/>
 
-                        <h3>Imagenes secundarias (máximo 4):</h3>
+                        <h3>Imagenes secundarias:</h3>
                         <input type="text" id="Update_secImg1" />
+                        <br/><br/>
                         <input type="text" id="Update_secImg2" />
+                        <br/><br/>
                         <input type="text" id="Update_secImg3" />
+                        <br/><br/>
                         <input type="text" id="Update_secImg4" />
                         
 

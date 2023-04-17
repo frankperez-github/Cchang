@@ -129,7 +129,7 @@ function Project() {
                         <div className="reviews">
                             {
                                 [... Array(project.stars).keys()].map((number) =>
-                                    <img key={number} className="image" src="/star.png" fill alt="*"/>
+                                    <Image key={number} className="image" src="/star.png" fill alt="*"/>
                                 )
                             }
                             <div className="">

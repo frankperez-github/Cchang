@@ -1,53 +1,6 @@
 {
   "projects": [
     {
-      "id": 3,
-      "principalImage": "https://drive.google.com/file/d/1258nWLJ2f2lsEw4w1KF6v959OvuYC8OM/view?usp=share_link",
-      "secondaryImages": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "title": {
-        "keyWords": "Electricidad",
-        "text": "para todos"
-      },
-      "category": "eléctricos",
-      "description": "Test Description",
-      "day": "24",
-      "month": "9",
-      "year": "2002",
-      "stars": 1,
-      "reviews": [
-        1
-      ]
-    },
-    {
-      "id": "39700116-ac83-44f3-a0fd-c8a939526acc",
-      "principalImage": "",
-      "secondaryImages": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "title": {
-        "keyWords": "Reparacion",
-        "text": " de este sitio"
-      },
-      "category": "eléctricos",
-      "description": "Description de prueba",
-      "day": "25",
-      "month": "9",
-      "year": "2002",
-      "stars": 1,
-      "reviews": [
-        1,
-        1
-      ]
-    },
-    {
       "id": "18809802-6079-488a-a62b-1f672591b603",
       "principalImage": "https://drive.google.com/uc?export=view&id=1258nWLJ2f2lsEw4w1KF6v959OvuYC8OM",
       "secondaryImages": [
@@ -68,6 +21,29 @@
       "stars": 0,
       "reviews": [
         0
+      ]
+    },
+    {
+      "id": "219d4d28-905c-4c0c-8467-4b521c41ae2e",
+      "principalImage": "https://drive.google.com/uc?export=view&id=1258nWLJ2f2lsEw4w1KF6v959OvuYC8OM",
+      "secondaryImages": [
+        "https://drive.google.com/uc?export=view&id=1258nWLJ2f2lsEw4w1KF6v959OvuYC8OM",
+        "https://drive.google.com/uc?export=view&id=1258nWLJ2f2lsEw4w1KF6v959OvuYC8OM",
+        "https://drive.google.com/uc?export=view&id=1258nWLJ2f2lsEw4w1KF6v959OvuYC8OM",
+        "https://drive.google.com/uc?export=view&id=1258nWLJ2f2lsEw4w1KF6v959OvuYC8OM"
+      ],
+      "title": {
+        "keyWords": "Prueba",
+        "text": "Inicial"
+      },
+      "category": "eléctricos",
+      "description": "Esto es una descripcion de un proyecto de prueba con todas las imagenes iguales",
+      "day": "24",
+      "month": "9",
+      "year": "2002",
+      "stars": 2,
+      "reviews": [
+        2
       ]
     }
   ]
