@@ -11,7 +11,7 @@ export const SiteContextProvider = ({children})=>{
     
     const fetchProjects = ()=>{
        
-        fetch(`http://localhost:5000/projects`)
+        fetch(`${process.env.serverPath}/projects`)
         .then(res =>res.json())
         .then(json=>{
             setProjects(json)    
@@ -76,7 +76,7 @@ export const SiteContextProvider = ({children})=>{
     {
         if(id !== 0)
         {
-            const response = await fetch(`http://localhost:5000/projects/${id}`,
+            const response = await fetch(`${process.env.serverPath}/projects/${id}`,
             {
                 method: 'PUT',
                 headers:{

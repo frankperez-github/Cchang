@@ -32,7 +32,7 @@ function Admin() {
 
     const Post = async()=>
     {
-        const response = await fetch(`http://localhost:5000/projects/`,
+        const response = await fetch(`${process.env.serverPath}/projects/`,
         {
             method: 'POST',
             headers:{
@@ -45,7 +45,7 @@ function Admin() {
     }
     const Delete = async(id)=>
     {
-        const response = await fetch(`http://localhost:5000/projects/${id}`,
+        const response = await fetch(`${process.env.serverPath}/projects/${id}`,
         {
             method: 'DELETE',
             headers:{
@@ -58,7 +58,7 @@ function Admin() {
     const Put = async(id)=>
     {
         Update()
-        const response = await fetch(`http://localhost:5000/projects/${id}`,
+        const response = await fetch(`${process.env.serverPath}/projects/${id}`,
         {
             method: 'PUT',
             headers:{
