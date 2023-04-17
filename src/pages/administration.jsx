@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react"
 import {stringify, v4 as uuidv4} from 'uuid'
 
 
-function admin() {
+function Admin() {
     const {projects, fetchProjects} = useContext(SiteContext)
     const [action, setAction] = useState("")
     const[project, setProject] = useState({})
@@ -269,4 +269,4 @@ function admin() {
     )
 }
 
-export default admin
+export default Admin
