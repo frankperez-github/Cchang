@@ -11,7 +11,7 @@ export const SiteContextProvider = ({children})=>{
     
     const fetchProjects = ()=>{
        
-        fetch(`${process.env.serverPath}/projects`)
+        fetch(`https://cchang-server.vercel.app/projects`)
         .then(res =>res.json())
         .then(json=>{
             setProjects(json)    
