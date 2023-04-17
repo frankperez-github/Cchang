@@ -38,8 +38,10 @@ export default function Home() {
         <div className="desktopView">
           <GeneralInformation />
           <div className="desktopView rightColumn">
-            <Services />
-            <div>
+            <div className='leftSide'>
+              <Services />
+            </div>
+            <div className='rightSide'>
               <Projects />
               <Contact />
             </div>

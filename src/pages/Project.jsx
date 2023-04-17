@@ -58,6 +58,7 @@ function Project() {
     useEffect(()=>{3
         fetchProjects()
         setProject(projects.find((x)=>(x.id === id)))
+        console.log(project)
     }, [id])  
 
 
@@ -71,7 +72,7 @@ function Project() {
             <div className="Project mobContainer desktopHidden">
                 <p><b>{project.title.keyWords}</b> {project.title.text}</p>
                 
-                <Image className="image projectImage" src={project.principalImage} alt="projectImage" fill/>
+                <img className="image projectImage" src={project.principalImage} alt="projectImage" fill/>
                 
                 <div className="photoFoot">
                     <h2>Explicación</h2>
@@ -97,18 +98,18 @@ function Project() {
                     {
                         (project.secondaryImages).map((imagePath, index)=>
                             (
-                                <Image key={index} className="image projectImagePrev" src={imagePath} fill alt="*"/>
+                                <img key={index} className="image projectImagePrev" src={imagePath} fill alt="*"/>
                             ))
                         }
                 </div>
 
                 <h2>Califica nuestro trabajo</h2>
                 <div className="reviews completeReview">
-                    <Image onClick={()=>(handleReview(1))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image onClick={()=>(handleReview(2))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image onClick={()=>(handleReview(3))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image onClick={()=>(handleReview(4))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                    <Image onClick={()=>(handleReview(5))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <img onClick={()=>(handleReview(1))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <img onClick={()=>(handleReview(2))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <img onClick={()=>(handleReview(3))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <img onClick={()=>(handleReview(4))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                    <img onClick={()=>(handleReview(5))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
                     <div className="reviewsQuantity">
                         <p>(24)</p>
                     </div>
@@ -121,14 +122,14 @@ function Project() {
                 <div className="left column">
                     <p><b>{project.title.keyWords}</b> {project.title.text}</p>
                     
-                    <Image className="image projectImage" src={project.principalImage} alt="projectImage" fill/>
+                    <img className="image projectImage" src={project.principalImage} alt="projectImage" fill/>
                     
                     <div className="photoFoot">
                         <h2>Valoración</h2>
                         <div className="reviews">
                             {
                                 [... Array(project.stars).keys()].map((number) =>
-                                    <Image key={number} className="image" src="/star.png" fill alt="*"/>
+                                    <img key={number} className="image" src="/star.png" fill alt="*"/>
                                 )
                             }
                             <div className="">
@@ -144,7 +145,7 @@ function Project() {
                         {
                             (project.secondaryImages).map((imagePath, index) =>
                                 (
-                                    <Image key={index} className="image projectImagePrev" src={imagePath} fill alt="*"/>
+                                    <img key={index} className="image projectImagePrev" src={imagePath} fill alt="*"/>
                                 ))
                         }
                         
@@ -157,11 +158,11 @@ function Project() {
                     </p>
                     <h2>Califica nuestro trabajo</h2>
                     <div className="reviews completeReview">
-                        <Image onClick={()=>(handleReview(1))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        <Image onClick={()=>(handleReview(2))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        <Image onClick={()=>(handleReview(3))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        <Image onClick={()=>(handleReview(4))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
-                        <Image onClick={()=>(handleReview(5))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                        <img onClick={()=>(handleReview(1))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                        <img onClick={()=>(handleReview(2))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                        <img onClick={()=>(handleReview(3))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                        <img onClick={()=>(handleReview(4))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
+                        <img onClick={()=>(handleReview(5))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
                     </div>
                 </div>
                 <div className="right column">

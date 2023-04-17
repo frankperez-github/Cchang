@@ -1,6 +1,6 @@
 import SiteContext from "@/Context/siteContext"
 import { useContext, useEffect, useState } from "react"
-import {v4 as uuidv4} from 'uuid'
+import {stringify, v4 as uuidv4} from 'uuid'
 
 
 function admin() {
@@ -93,11 +93,16 @@ function admin() {
         })
     }
 
-    const imagePath=(image)=>
+    function imagePath(image)
     {
-        if(image !== null)
+        console.log(image)
+        if(image !== "")
         {
-            return ""
+            const splitted = image.split("/")
+            const id = splitted[splitted.length - 2]
+            const path = "https://drive.google.com/uc?export=view&id="+id
+            console.log(path)
+            return path
         }
     }
     
@@ -120,6 +125,8 @@ function admin() {
             "reviews": [0]
         }
         setProject(newProject)
+        console.log(newProject.principalImage)
+
     }
     const create=()=>
     {
@@ -161,13 +168,13 @@ function admin() {
                     <input onChange={()=>updateNew()} type="text" id="title" placeholder="resto del título"/>
 
                     <h3>Imagen principal:</h3>
-                    <input onChange={()=>updateNew()} id="principalImg" type="file" accept="image/*"/>
+                    <input onChange={()=>updateNew()} id="principalImg" type="text" />
 
                     <h3>Imagenes secundarias (máximo 4):</h3>
-                    <input onChange={()=>updateNew()} type="file" id="secImg1" accept="image/*"/>
-                    <input onChange={()=>updateNew()} type="file" id="secImg2" accept="image/*"/>
-                    <input onChange={()=>updateNew()} type="file" id="secImg3" accept="image/*"/>
-                    <input onChange={()=>updateNew()} type="file" id="secImg4" accept="image/*"/>
+                    <input onChange={()=>updateNew()} type="text" id="secImg1" />
+                    <input onChange={()=>updateNew()} type="text" id="secImg2" />
+                    <input onChange={()=>updateNew()} type="text" id="secImg3" />
+                    <input onChange={()=>updateNew()} type="text" id="secImg4" />
                     
 
                     <h3>Categoría:</h3>
@@ -198,7 +205,7 @@ function admin() {
                 (
                     project.title !== undefined &&
                         <div key={index} className="projectRow">
-                            <h3>{project.id}.  {project.title.keyWords} {project.title.text}</h3>
+                            <h3>{project.title.keyWords} {project.title.text}</h3>
                             <button onClick={()=>(setUpdating(true), setProject(project))} className="siteButton shortButton">Actualizar</button>
                         </div>
                 ))
@@ -212,13 +219,13 @@ function admin() {
 
                         <p>A menos que decida cambiarlas, se mantendrán las imagenes anteriores</p>
                         <h3>Imagen principal:</h3>
-                        <input id="Update_principalImg" type="file" accept="image/*"/>
+                        <input id="Update_principalImg" type="text" defaultValue={project.principalImage}/>
 
                         <h3>Imagenes secundarias (máximo 4):</h3>
-                        <input type="file" id="Update_secImg1" accept="image/*"/>
-                        <input type="file" id="Update_secImg2" accept="image/*"/>
-                        <input type="file" id="Update_secImg3" accept="image/*"/>
-                        <input type="file" id="Update_secImg4" accept="image/*"/>
+                        <input type="text" id="Update_secImg1" />
+                        <input type="text" id="Update_secImg2" />
+                        <input type="text" id="Update_secImg3" />
+                        <input type="text" id="Update_secImg4" />
                         
 
                         <h3>Categoría:</h3>
@@ -252,7 +259,7 @@ function admin() {
                 (
                     project.title !== undefined &&
                         <div key={index} className="projectRow">
-                            <h3>{project.id}.  {project.title.keyWords} {project.title.text}</h3>
+                            <h3>{project.title.keyWords} {project.title.text}</h3>
                             <button onClick={()=>remove(project)} className="siteButton shortButton">Borrar</button>
                         </div>
                 ))

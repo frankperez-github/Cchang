@@ -4,7 +4,7 @@ function ProjectCard({project}) {
     return(
         project !== undefined &&
         <div className="ProjectCard">
-            <Image alt="projectImage" fill src={project.principalImage} className="image"/>
+            <img alt="projectImage" fill src={project.principalImage} className="image"/>
             <div className="projectInfo">
                 <p>{project.title.keyWords} {project.title.text}</p>
                 <div className="projectFooter">
