@@ -38,6 +38,7 @@ export const SiteContextProvider = ({children})=>{
         var found = false
         currProject.reviews.map((review)=>
         {
+            console.log(prev)
             if (review === prev && !found)
             {
                 const index = currProject.reviews.indexOf(review)
