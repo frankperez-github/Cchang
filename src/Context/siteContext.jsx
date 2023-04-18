@@ -46,7 +46,7 @@ export const SiteContextProvider = ({children})=>{
             }
         })
 
-
+        console.log("pasandole: "+stars)
         setRating(id, stars, false)
     }
     const [updated, setUpdated]=useState({"id": 0,
@@ -91,13 +91,9 @@ export const SiteContextProvider = ({children})=>{
 
         const currProject = projects.find((x)=>(x.id === id))
         setId(id)
-        //calculating rating to project
-        var updating = JSON.parse(localStorage.getItem("ratedProjects")).filter((review)=>review.id===id)
-        if (updating.length === 0)
-        {
-            currProject.reviews = [stars, ...currProject.reviews]
-        }
         
+        //calculating rating to project
+        currProject.reviews = [stars, ...currProject.reviews]
         var newRating = 0
         currProject.reviews.map(review=>
         {
