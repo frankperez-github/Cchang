@@ -38,11 +38,9 @@ export const SiteContextProvider = ({children})=>{
         var found = false
         currProject.reviews.map((review)=>
         {
-            console.log(prev)
             if (review === prev && !found)
             {
                 const index = currProject.reviews.indexOf(review)
-                console.log("cambie: " +currProject.reviews[index]+" por "+stars)
                 currProject.reviews[index] = stars
                 found = true
             }
