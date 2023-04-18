@@ -41,6 +41,7 @@ export const SiteContextProvider = ({children})=>{
             if (review === prev && !found)
             {
                 const index = currProject.reviews.indexOf(review)
+                console.log("cambie: " +currProject.reviews[index]+" por "+stars)
                 currProject.reviews[index] = stars
                 found = true
             }
@@ -91,8 +92,8 @@ export const SiteContextProvider = ({children})=>{
         setId(id)
         
         //calculating rating to project
-        var updateRev = JSON.parse(localStorage.getItem("ratedProjects")).find((x)=>(x.id === id))
-        if(updateRev === undefined)
+        var updateRev = JSON.parse(localStorage.getItem("ratedProjects")).filter((x)=>(x.id === id))
+        if(updateRev.length === 0)
         {
             currProject.reviews = [stars, ...currProject.reviews]
         }
