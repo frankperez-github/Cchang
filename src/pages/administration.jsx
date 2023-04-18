@@ -66,8 +66,6 @@ function Admin() {
             },
             body: JSON.stringify(project)
         })
-        console.log(process.env.serverPath)
-        console.log(response)
         fetchProjects()
     }
     const Update = ()=>
