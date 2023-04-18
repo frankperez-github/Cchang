@@ -10,7 +10,7 @@ export const SiteContextProvider = ({children})=>{
 
     
     const fetchProjects = ()=>{
-       
+       console.log(process.env.serverPath)
         fetch(`${process.env.serverPath}/projects`)
         .then(res =>res.json())
         .then(json=>{
