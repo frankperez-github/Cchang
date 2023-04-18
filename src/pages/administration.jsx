@@ -58,6 +58,7 @@ function Admin() {
     const Put = async(id)=>
     {
         Update()
+        console.log(project)
         const response = await fetch(`${process.env.serverPath}/projects/${id}`,
         {
             method: 'PUT',
