@@ -67,6 +67,7 @@ function Admin() {
             },
             body: JSON.stringify(project)
         })
+        console.log(response)
         fetchProjects()
     }
     const Update = ()=>
@@ -96,13 +97,11 @@ function Admin() {
 
     function imagePath(image)
     {
-        console.log(image)
         if(image !== "")
         {
             const splitted = image.split("/")
             const id = splitted[splitted.length - 2]
             const path = "https://drive.google.com/uc?export=view&id="+id
-            console.log(path)
             return path
         }
     }
