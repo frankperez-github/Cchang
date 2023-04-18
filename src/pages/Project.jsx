@@ -58,12 +58,11 @@ function Project() {
     useEffect(()=>{
         if(projects.length === 0)
         {
-
             fetchProjects()
         }
         setProject(projects.find((x)=>(x.id === id)))
         console.log(projects)
-    }, [id])  
+    }, [id, projects])  
 
 
     return(
