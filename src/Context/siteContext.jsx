@@ -86,6 +86,20 @@ export const SiteContextProvider = ({children})=>{
             currProject.reviews = [stars, ...currProject.reviews]
         }
         
+        //Update project's review on db
+        if(!New)
+        {
+            var found = false
+            currProject.reviews.map((review)=>
+            {
+                if (review === prev && !found)
+                {
+                    const index = currProject.reviews.indexOf(review)
+                    currProject.reviews[index] = stars
+                    found = true
+                }
+            })
+        }
         var newRating = 0
         currProject.reviews.map(review=>
         {
@@ -107,17 +121,7 @@ export const SiteContextProvider = ({children})=>{
 
         if(New === false)
         {
-            //Update project's review
-            var found = false
-            currProject.reviews.map((review)=>
-            {
-                if (review === prev && !found)
-                {
-                    const index = currProject.reviews.indexOf(review)
-                    currProject.reviews[index] = stars
-                    found = true
-                }
-            })
+            
             //Updating in database
             setUpdated({"id": id,
             "principalImage":currProject.principalImage,
