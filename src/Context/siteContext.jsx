@@ -91,7 +91,7 @@ export const SiteContextProvider = ({children})=>{
         setId(id)
         
         //calculating rating to project
-        var updateRev = localStorage.getItem("ratedProjects").filter(x=>x.id === id)
+        var updateRev = localStorage.getItem("ratedProjects").filter((x)=>x.id === id)
         if(updateRev.length === 0)
         {
             currProject.reviews = [stars, ...currProject.reviews]
