@@ -96,11 +96,6 @@ export const SiteContextProvider = ({children})=>{
         {
             currProject.reviews = [stars, ...currProject.reviews]
         }
-        else
-        {
-            currProject.reviews[currProject.indexOf(updateRev.stars)] = stars
-            updateRev.stars = stars
-        }
         
         var newRating = 0
         currProject.reviews.map(review=>
