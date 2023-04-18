@@ -61,7 +61,6 @@ function Project() {
             fetchProjects()
         }
         setProject(projects.find((x)=>(x.id === id)))
-        console.log(projects)
     }, [id, projects])  
 
 
