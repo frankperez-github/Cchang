@@ -123,7 +123,6 @@ function Admin() {
             "reviews": []
         }
         setProject(newProject)
-        console.log(newProject.principalImage)
 
     }
     const create=()=>
