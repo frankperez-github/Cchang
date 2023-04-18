@@ -19,20 +19,6 @@ export const SiteContextProvider = ({children})=>{
     
     const updateRating=(id, stars)=>
     {
-        var prev = 0
-        //Update user's reviews
-        var oldData = JSON.parse(localStorage.getItem("ratedProjects"))
-        
-        oldData.map((rating=>
-        {
-            if(rating.id === id)
-            {
-                prev = rating.stars
-                oldData[oldData.indexOf(rating)].stars = stars
-            }
-        }))
-        localStorage.setItem("ratedProjects", JSON.stringify(oldData))
-
         setRating(id, stars, false)
     }
     const [updated, setUpdated]=useState({"id": 0,
@@ -88,10 +74,24 @@ export const SiteContextProvider = ({children})=>{
         //Update project's review on db
         if(New === false)
         {
+            var prev = 0
+            //Update user's reviews
+            var oldData = JSON.parse(localStorage.getItem("ratedProjects"))
+            
+            oldData.map((rating=>
+            {
+                if(rating.id === id)
+                {
+                    prev = rating.stars
+                    oldData[oldData.indexOf(rating)].stars = stars
+                }
+            }))
+            localStorage.setItem("ratedProjects", JSON.stringify(oldData))
+
             var found = false
             currProject.reviews.map((review)=>
             {
-                if (review === currProject.stars && !found)
+                if (review === prev && !found)
                 {
                     console.log("coinciden")
                     const index = currProject.reviews.indexOf(review)
