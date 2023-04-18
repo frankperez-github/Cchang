@@ -55,7 +55,7 @@ function Project() {
     )
     
 
-    useEffect(()=>{3
+    useEffect(()=>{
         fetchProjects()
         setProject(projects.find((x)=>(x.id === id)))
         console.log(projects)
