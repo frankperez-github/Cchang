@@ -19,7 +19,6 @@ export const SiteContextProvider = ({children})=>{
     
     const updateRating=(id, stars)=>
     {
-        const currProject = projects.find((x)=>(x.id === id))
         var prev = 0
         //Update user's reviews
         var oldData = JSON.parse(localStorage.getItem("ratedProjects"))
@@ -92,7 +91,7 @@ export const SiteContextProvider = ({children})=>{
             var found = false
             currProject.reviews.map((review)=>
             {
-                if (review === prev && !found)
+                if (review === currProject.stars && !found)
                 {
                     const index = currProject.reviews.indexOf(review)
                     currProject.reviews[index] = stars
