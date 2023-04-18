@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ['drive.google.com'], //make it 'your-domain.com'
   },
   env: {  
-    serverPath: 'https://cchang-server.vercel.app'  
+    serverPath: process.env.serverPath  
   }
 }
 
