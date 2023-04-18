@@ -82,6 +82,7 @@ export const SiteContextProvider = ({children})=>{
                 },
                 body: JSON.stringify(updated)
             })
+            console.log(updated.reviews)
         }
     }
     
