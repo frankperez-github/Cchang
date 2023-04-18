@@ -4,7 +4,9 @@ const nextConfig = {
   images: {
     domains: ['drive.google.com'], //make it 'your-domain.com'
   },
-  env: {  serverPath: process.env.serverPath  }
+  env: {  
+    serverPath: 'https://cchang-server.vercel.app'  
+  }
 }
 
 module.exports = nextConfig
