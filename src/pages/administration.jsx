@@ -58,7 +58,6 @@ function Admin() {
     const Put = async(id)=>
     {
         Update()
-        console.log(project)
         const response = await fetch(`${process.env.serverPath}/projects/${id}`,
         {
             method: 'PUT',
@@ -67,7 +66,6 @@ function Admin() {
             },
             body: JSON.stringify(project)
         })
-        console.log(response)
         fetchProjects()
     }
     const Update = ()=>
