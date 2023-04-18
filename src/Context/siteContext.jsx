@@ -86,13 +86,14 @@ export const SiteContextProvider = ({children})=>{
         }
         
         //Update project's review on db
-        if(!New)
+        if(New === false)
         {
             var found = false
             currProject.reviews.map((review)=>
             {
                 if (review === currProject.stars && !found)
                 {
+                    console.log("coinciden")
                     const index = currProject.reviews.indexOf(review)
                     currProject.reviews[index] = stars
                     found = true
