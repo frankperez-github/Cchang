@@ -100,7 +100,6 @@ function Admin() {
             const splitted = image.split("/")
             const id = splitted[splitted.length - 2]
             const path = "https://drive.google.com/uc?export=view&id="+id
-            console.log(path)
             return path
         }
     }
