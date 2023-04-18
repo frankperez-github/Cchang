@@ -5,7 +5,7 @@ const nextConfig = {
     domains: ['drive.google.com'],
   },
   env: {  
-    serverPath: process.env.serverPath  
+    serverPath: process.env.serverPath
   }
 }
 
