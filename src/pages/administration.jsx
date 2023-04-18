@@ -70,6 +70,7 @@ function Admin() {
     }
     const Update = ()=>
     {
+        console.log(project.principalImage)
         setProject({
             "id": project.id,
             "principalImage": project.principalImage === imagePath(document.getElementById("Update_principalImg").value) ? project.principalImage : imagePath(document.getElementById("Update_principalImg").value),
