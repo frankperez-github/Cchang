@@ -70,7 +70,6 @@ function Admin() {
     }
     const Update = ()=>
     {
-        console.log(project.principalImage)
         setProject({
             "id": project.id,
             "principalImage": project.principalImage === imagePath(document.getElementById("Update_principalImg").value) ? project.principalImage : imagePath(document.getElementById("Update_principalImg").value),
@@ -100,6 +99,7 @@ function Admin() {
         {
             const splitted = image.split("/")
             const id = splitted[splitted.length - 2]
+            console.log(id)
             const path = "https://drive.google.com/uc?export=view&id="+id
             return path
         }
