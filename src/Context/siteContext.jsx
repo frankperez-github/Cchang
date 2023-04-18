@@ -34,18 +34,6 @@ export const SiteContextProvider = ({children})=>{
         }))
         localStorage.setItem("ratedProjects", JSON.stringify(oldData))
 
-        //Update project's review
-        var found = false
-        currProject.reviews.map((review)=>
-        {
-            if (review === prev && !found)
-            {
-                const index = currProject.reviews.indexOf(review)
-                currProject.reviews[index] = stars
-                found = true
-            }
-        })
-
         setRating(id, stars, false)
     }
     const [updated, setUpdated]=useState({"id": 0,
@@ -119,6 +107,17 @@ export const SiteContextProvider = ({children})=>{
 
         if(New === false)
         {
+            //Update project's review
+            var found = false
+            currProject.reviews.map((review)=>
+            {
+                if (review === prev && !found)
+                {
+                    const index = currProject.reviews.indexOf(review)
+                    currProject.reviews[index] = stars
+                    found = true
+                }
+            })
             //Updating in database
             setUpdated({"id": id,
             "principalImage":currProject.principalImage,
