@@ -55,7 +55,6 @@ export const SiteContextProvider = ({children})=>{
                 },
                 body: JSON.stringify(updated)
             })
-            console.log(updated.reviews)
         }
     }
     
@@ -93,7 +92,6 @@ export const SiteContextProvider = ({children})=>{
             {
                 if (review === prev && !found)
                 {
-                    console.log("coinciden")
                     const index = currProject.reviews.indexOf(review)
                     currProject.reviews[index] = stars
                     found = true
@@ -118,23 +116,19 @@ export const SiteContextProvider = ({children})=>{
             localStorage.setItem("ratedProjects", JSON.stringify([newElement,...oldData]))
             New = false
         }
-
-        if(New === false)
-        {
             
-            //Updating in database
-            setUpdated({"id": id,
-            "principalImage":currProject.principalImage,
-            "secondaryImages":currProject.secondaryImages,
-            "title":currProject.title,
-            "category": currProject.category,
-            "description":currProject.description,
-            "day": currProject.day,
-            "month": currProject.month,
-            "year": currProject.year,
-            "stars": currProject.stars,
-            "reviews": currProject.reviews})
-        }
+        //Updating in database
+        setUpdated({"id": id,
+        "principalImage":currProject.principalImage,
+        "secondaryImages":currProject.secondaryImages,
+        "title":currProject.title,
+        "category": currProject.category,
+        "description":currProject.description,
+        "day": currProject.day,
+        "month": currProject.month,
+        "year": currProject.year,
+        "stars": currProject.stars,
+        "reviews": currProject.reviews})
     }
 
     const filter=(category)=>
