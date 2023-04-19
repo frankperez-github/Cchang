@@ -5,6 +5,10 @@
   padding: 0;
   margin: 0;
 }
+b
+{
+  font-weight: 600;
+}
 .date
 {
   font-family: 'Source Sans Pro', sans-serif;
