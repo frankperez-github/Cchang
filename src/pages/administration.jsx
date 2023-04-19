@@ -70,7 +70,7 @@ function Admin() {
     }
     const Update = ()=>
     {
-        setProject({
+        const newProject = {
             "id": project.id,
             "principalImage": project.principalImage === imagePath(document.getElementById("Update_principalImg").value) ? project.principalImage : imagePath(document.getElementById("Update_principalImg").value),
             "secondaryImages": [
@@ -90,7 +90,9 @@ function Admin() {
             "year": document.getElementById("Update_year").value,
             "stars": project.stars,
             "reviews": project.reviews
-        })
+        }
+        console.log(newProject.principalImage)
+        setProject(newProject)
     }
 
     function imagePath(image)
