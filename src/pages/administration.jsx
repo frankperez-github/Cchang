@@ -222,16 +222,16 @@ function Admin() {
 
                         <p>A menos que decida cambiarlas, se mantendrán las imagenes anteriores</p>
                         <h3>Imagen principal:</h3>
-                        <input id="Update_principalImg" type="text" defaultValue={project.principalImage}/>
+                        <input id="Update_principalImg" onChange={()=>Update()} type="text" defaultValue={project.principalImage}/>
 
                         <h3>Imagenes secundarias:</h3>
-                        <input type="text" id="Update_secImg1" />
+                        <input type="text" id="Update_secImg1" onChange={()=>Update()}/>
                         <br/><br/>
-                        <input type="text" id="Update_secImg2" />
+                        <input type="text" id="Update_secImg2" onChange={()=>Update()}/>
                         <br/><br/>
-                        <input type="text" id="Update_secImg3" />
+                        <input type="text" id="Update_secImg3" onChange={()=>Update()}/>
                         <br/><br/>
-                        <input type="text" id="Update_secImg4" />
+                        <input type="text" id="Update_secImg4" onChange={()=>Update()}/>
                         
 
                         <h3>Categoría:</h3>
