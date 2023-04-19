@@ -23,7 +23,7 @@ body {
   display: block;
 }
 
-a {
+Link, a {
   text-transform: uppercase;
   font-weight: bold;
   color: inherit;
