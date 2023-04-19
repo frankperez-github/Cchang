@@ -185,7 +185,7 @@ h1,h2,h3,h4,button
 }
 .ProjectCard
 {
-  width: 100%;
+  width: 90%;
   border: solid;
   border-radius: 0.6rem;
   border-width: 1px;
@@ -213,6 +213,7 @@ h1,h2,h3,h4,button
 }
 .projectsButtons
 {
+  width: 90%;
   display: flex;
   justify-content: space-between;
 }
