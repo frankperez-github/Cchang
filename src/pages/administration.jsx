@@ -91,7 +91,6 @@ function Admin() {
             "stars": project.stars,
             "reviews": project.reviews
         }
-        console.log(newProject.principalImage)
         setProject(newProject)
     }
 
@@ -220,6 +219,8 @@ function Admin() {
                         <input type="text" id="Update_key-word" onChange={()=>Update()} defaultValue={project.title.keyWords} placeholder="palabra clave"/>
                         <input type="text" id="Update_title" onChange={()=>Update()} defaultValue={project.title.text} placeholder="resto del título"/>
 
+                        <br/>
+                        <br/>
                         <p>A menos que decida cambiarlas, se mantendrán las imagenes anteriores</p>
                         <h3>Imagen principal:</h3>
                         <input id="Update_principalImg" onChange={()=>Update()} type="text" defaultValue={project.principalImage}/>
