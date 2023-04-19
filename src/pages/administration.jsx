@@ -72,12 +72,12 @@ function Admin() {
     {
         const newProject = {
             "id": project.id,
-            "principalImage": project.principalImage === imagePath(document.getElementById("Update_principalImg").value) ? project.principalImage : imagePath(document.getElementById("Update_principalImg").value),
+            "principalImage": project.principalImage === document.getElementById("Update_principalImg") ? project.principalImage : imagePath(document.getElementById("Update_principalImg").value),
             "secondaryImages": [
-                project.secondaryImages[0] === imagePath(document.getElementById("Update_secImg1").value) ? project.secondaryImages[0] : imagePath(document.getElementById("Update_secImg1").value), 
-                project.secondaryImages[1] === imagePath(document.getElementById("Update_secImg2").value) ? project.secondaryImages[1] : imagePath(document.getElementById("Update_secImg1").value), 
-                project.secondaryImages[2] === imagePath(document.getElementById("Update_secImg3").value) ? project.secondaryImages[2] : imagePath(document.getElementById("Update_secImg1").value), 
-                project.secondaryImages[3] === imagePath(document.getElementById("Update_secImg4").value) ? project.secondaryImages[3] : imagePath(document.getElementById("Update_secImg1").value), 
+                project.secondaryImages[0] === document.getElementById("Update_secImg1") ? project.secondaryImages[0] : imagePath(document.getElementById("Update_secImg1").value), 
+                project.secondaryImages[1] === document.getElementById("Update_secImg2") ? project.secondaryImages[1] : imagePath(document.getElementById("Update_secImg1").value), 
+                project.secondaryImages[2] === document.getElementById("Update_secImg3") ? project.secondaryImages[2] : imagePath(document.getElementById("Update_secImg1").value), 
+                project.secondaryImages[3] === document.getElementById("Update_secImg4") ? project.secondaryImages[3] : imagePath(document.getElementById("Update_secImg1").value), 
             ],
             "title": {
                 "keyWords":document.getElementById("Update_key-word").value, 
