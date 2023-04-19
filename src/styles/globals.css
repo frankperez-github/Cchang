@@ -72,7 +72,6 @@ button{
 }
 .headerImages
 {
-  margin-top: 12%;
   width: 80%;
   display: flex;
   margin-left: 2%;
@@ -598,6 +597,7 @@ textarea
   }
   .headerImages
   {
+    margin-top: 12%;
     width: 40%;
   }
   .headerImage
