@@ -138,6 +138,12 @@ export const SiteContextProvider = ({children})=>{
         {
             fetchProjects()
         }
+        
+        if(category === "all")
+        {
+            return projects
+        } 
+
         projects.map((project)=>
         {
             if(project.category === category)

@@ -24,7 +24,7 @@ function Projects() {
 
     const { category } = router.query
     const [Projects, setProjects] = useState([])
-    const [categ, setcateg] = useState(category)
+    const [categ, setcateg] = useState("all")
     const [electrics, setElectrics] = useState("/disabledElectr.png")
     const [airs, setAirs] = useState("/disabledIce.png")
     const [reparations, setReparations] = useState("/disabledRepar.png")
@@ -48,6 +48,12 @@ function Projects() {
         {
             setElectrics("/disabledElectr.png")
             setAirs("/disabledIce.png")
+            setReparations("/enabledRepar.png")
+        }
+        else if (categ === "all")
+        {
+            setElectrics("/enabledElectr.png")
+            setAirs("/enabledIce.png")
             setReparations("/enabledRepar.png")
         }
     }

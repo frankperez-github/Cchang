@@ -16,7 +16,7 @@ function NavBar() {
             <Link href="/" id="0" onClick={()=>setSelected(0)}>
                 SOBRE LA EMPRESA
             </Link>
-            <Link href="/Projects?category=eléctricos" id="1" onClick={()=>setSelected(1)}>
+            <Link href="/Projects?category=all" id="1" onClick={()=>setSelected(1)}>
                 PROYECTOS
             </Link>
         </div>
