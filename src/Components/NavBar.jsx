@@ -14,10 +14,14 @@ function NavBar() {
    return(
         <div className="navBar">
             <Link href="/" id="0" onClick={()=>setSelected(0)}>
+                <h2>
                     Sobre la Empresa
+                </h2>
             </Link>
             <Link href="/Projects?category=all" id="1" onClick={()=>setSelected(1)}>
+                <h2>
                     Proyectos
+                </h2>
             </Link>
         </div>
    );
