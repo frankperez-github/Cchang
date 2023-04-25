@@ -377,6 +377,10 @@ textarea
   padding: 1% 0;
 }
 @media (max-width: 1024px) {
+  .logo
+  {
+    margin-bottom: 2%;
+  }
   h1{
     font-size: 27px;
   }
