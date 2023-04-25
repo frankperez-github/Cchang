@@ -384,10 +384,6 @@ textarea
   padding: 1% 0;
 }
 @media (max-width: 1024px) {
-  .logo
-  {
-    margin-bottom: 2%;
-  }
   h1{
     font-size: 27px;
   }
@@ -414,10 +410,6 @@ textarea
   }
 }
 @media (min-width: 1024px) {
-  .logo
-  {
-    margin-bottom: 2%;
-  }
   h1{
     font-size: 27px;
   }
@@ -694,7 +686,7 @@ textarea
   {
     position: static;
     margin-bottom: 26%;
-    padding-bottom: 8%;
+    padding-bottom: 2%;
     margin-top: -14%;
     width: 22%;
     margin-left: 3%;
