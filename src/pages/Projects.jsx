@@ -62,7 +62,7 @@ function Projects() {
         updateCategIcon()
         setProjects(filter(categ))
         setSelected(1)
-    }, [category])
+    }, [category, categ])
 
 
     return(

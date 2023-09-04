@@ -40,7 +40,7 @@ function Project() {
         }
     }
     const [project, setProject] = useState(
-        {"id": 0,
+        {"_id": 0,
         "principalImage":"",
         "secondaryImages":[],
         "title":{
@@ -79,7 +79,7 @@ function Project() {
 
 
     return(
-        project.id !== 0 ?
+        project._id !== 0 ?
         <>
             <div className="mobileHidden">
                 <Header />
