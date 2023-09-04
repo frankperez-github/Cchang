@@ -61,7 +61,7 @@ export const SiteContextProvider = ({children})=>{
     
     const setRating= async (id, stars, New)=>{
 
-        const currProject = projects.find((x)=>(x.id === id))
+        const currProject = projects.find((x)=>(x._id === id))
         setId(id)
         
         //calculating rating to project

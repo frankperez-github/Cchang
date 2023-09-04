@@ -56,7 +56,6 @@ function Project() {
     
     const fetchProject= async()=>{
         try{
-            console.log(id)
             if(id !== undefined)
             {
                 await fetch(`${process.env.SERVER}/projects/${id}`).then(

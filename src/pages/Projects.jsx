@@ -87,7 +87,6 @@ function Projects() {
                 <Swiper slidesPerView={3}   navigation={true} pagination={true}  modules={[Navigation]} className="mySwiper">
                 {
                     Projects.map(project => (
-                        console.log(project),
                         <SwiperSlide key={project._id} className="slide">
                             <div className="slideElement" key={project._id}>
                                 <ProjectCard project={project} />

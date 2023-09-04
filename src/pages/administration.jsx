@@ -34,7 +34,6 @@ function Admin() {
     {
         try
         {
-            console.log(project.stars)
             const response = await fetch(`${process.env.SERVER}/projects/`,
             {
                 method: 'POST',
@@ -43,7 +42,6 @@ function Admin() {
                 },
                 body: JSON.stringify(project)
             })
-            console.log(response.body)
             alert("Proyecto creado correctamente")
             window.open(window.location.href, "_self")
         }
