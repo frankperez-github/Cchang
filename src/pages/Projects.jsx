@@ -88,7 +88,7 @@ function Projects() {
                 {
                     Projects.map(project => (
                         <SwiperSlide key={project.id} className="slide">
-                            <div className="slideElement">
+                            <div className="slideElement" key={project.id}>
                                 <ProjectCard project={project} />
                                 <button onClick={()=>handleClick(project.id)} className="siteButton extraLarge">Ver Más</button>
                             </div>

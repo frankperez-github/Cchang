@@ -6,7 +6,7 @@ function ProjectCard({project}) {
         <div className="ProjectCard">
             <img alt="projectImage" fill src={project.principalImage} className="image"/>
             <div className="projectInfo">
-                <p>{project.title.keyWords} {project.title.text}</p>
+                <p>{project.title[0]} {project.title[1]}</p>
                 <div className="projectFooter">
                         <p className="date">{project.day}-{project.month}-{project.year}</p>
                     <div className="reviews reviewsPreview">

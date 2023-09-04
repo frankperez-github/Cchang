@@ -72,7 +72,7 @@ function Project() {
             </div>
             <ReturnBar />    
             <div className="Project mobContainer desktopHidden">
-                <p><b>{project.title.keyWords}</b> {project.title.text}</p>
+                <p><b>{project.title[0]}</b> {project.title[1]}</p>
                 
                 <img className="image projectImage" src={project.principalImage} alt="projectImage" fill/>
                 
@@ -120,7 +120,7 @@ function Project() {
             <div className="desktopDistribution mobileHidden">
 
                 <div className="left column">
-                    <p><b>{project.title.keyWords}</b> {project.title.text}</p>
+                    <p><b>{project.title[0]}</b> {project.title[1]}</p>
                     
                     <img className="image projectImage" src={project.principalImage} alt="projectImage" fill/>
                     

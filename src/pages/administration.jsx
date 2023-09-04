@@ -32,7 +32,7 @@ function Admin() {
 
     const Post = async()=>
     {
-        const response = await fetch(`${process.env.serverPath}/projects/`,
+        const response = await fetch(`${process.env.SERVER}/projects/`,
         {
             method: 'POST',
             headers:{
@@ -45,7 +45,7 @@ function Admin() {
     }
     const Delete = async(id)=>
     {
-        const response = await fetch(`${process.env.serverPath}/projects/${id}`,
+        const response = await fetch(`${process.env.SERVER}/projects/${id}`,
         {
             method: 'DELETE',
             headers:{
@@ -58,7 +58,7 @@ function Admin() {
     const Put = async(id)=>
     {
         Update()
-        const response = await fetch(`${process.env.serverPath}/projects/${id}`,
+        const response = await fetch(`${process.env.SERVER}/projects/${id}`,
         {
             method: 'PUT',
             headers:{
@@ -79,10 +79,10 @@ function Admin() {
                 project.secondaryImages[2] === document.getElementById("Update_secImg3") ? project.secondaryImages[2] : imagePath(document.getElementById("Update_secImg1").value), 
                 project.secondaryImages[3] === document.getElementById("Update_secImg4") ? project.secondaryImages[3] : imagePath(document.getElementById("Update_secImg1").value), 
             ],
-            "title": {
-                "keyWords":document.getElementById("Update_key-word").value, 
-                "text":document.getElementById("Update_title").value
-            },
+            "title": [
+                document.getElementById("Update_key-word").value,
+                document.getElementById("Update_title").value
+            ],
             "category": document.getElementById("Update_category").value,
             "description": document.getElementById("Update_description").value,
             "day": document.getElementById("Update_day").value,
@@ -111,10 +111,10 @@ function Admin() {
             "id": uuidv4(),
             "principalImage": imagePath(document.getElementById("principalImg").value),
             "secondaryImages": [imagePath(document.getElementById("secImg1").value), imagePath(document.getElementById("secImg2").value), imagePath(document.getElementById("secImg3").value), imagePath(document.getElementById("secImg4").value)],
-            "title": {
-                "keyWords":document.getElementById("key-word").value, 
-                "text":document.getElementById("title").value
-            },
+            "title": [
+                document.getElementById("Update_key-word").value,
+                document.getElementById("Update_title").value
+            ],
             "category": document.getElementById("category").value,
             "description": document.getElementById("description").value,
             "day": document.getElementById("day").value,
@@ -132,7 +132,7 @@ function Admin() {
         {
             alert("Fecha no valida")
         }
-        else if(project.description === "" || project.title.keyWords === "" || project.title.text === "")
+        else if(project.description === "" || project.title[0] === "" || project.title[1] === "")
         {
             alert("Debe rellenar todos los campos correctamente")
         }
@@ -207,7 +207,7 @@ function Admin() {
                 (
                     project.title !== undefined &&
                         <div key={index} className="projectRow">
-                            <h3>{project.title.keyWords} {project.title.text}</h3>
+                            <h3>{project.title[0]} {project.title[1]}</h3>
                             <button onClick={()=>(setUpdating(true), setProject(project))} className="siteButton shortButton">Actualizar</button>
                         </div>
                 ))
@@ -216,8 +216,8 @@ function Admin() {
                     <form action="">
                         <h3 id="id">id: {project.id}</h3>
                         <h3>Título:</h3>
-                        <input type="text" id="Update_key-word" onChange={()=>Update()} defaultValue={project.title.keyWords} placeholder="palabra clave"/>
-                        <input type="text" id="Update_title" onChange={()=>Update()} defaultValue={project.title.text} placeholder="resto del título"/>
+                        <input type="text" id="Update_key-word" onChange={()=>Update()} defaultValue={project.title[0]} placeholder="palabra clave"/>
+                        <input type="text" id="Update_title" onChange={()=>Update()} defaultValue={project.title[1]} placeholder="resto del título"/>
 
                         <br/>
                         <br/>
@@ -266,7 +266,7 @@ function Admin() {
                 (
                     project.title !== undefined &&
                         <div key={index} className="projectRow">
-                            <h3>{project.title.keyWords} {project.title.text}</h3>
+                            <h3>{project.title[0]} {project.title[1]}</h3>
                             <button onClick={()=>remove(project)} className="siteButton shortButton">Borrar</button>
                         </div>
                 ))

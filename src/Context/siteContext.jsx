@@ -1,4 +1,3 @@
-import { setIndexConfiguration } from "firebase/firestore";
 import { createContext, useState, axios, useEffect } from "react";
 
 const SiteContext = createContext()
@@ -8,13 +7,28 @@ export const SiteContextProvider = ({children})=>{
     const [selected, setSelected] = useState(0)
     const [projects, setProjects] = useState([])
 
-    
-    const fetchProjects = ()=>{
-        fetch(`${process.env.serverPath}/projects`)
-        .then(res =>res.json())
-        .then(json=>{
-            setProjects(json)    
-        })
+    const Put = async(id)=>
+    {
+        if(id !== 0)
+        {
+            const response = await fetch(`${process.env.SERVER}/projects/${id}`,
+            {
+                method: 'PUT',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updated)
+            })
+        }
+    }
+    const fetchProjects = async()=>{
+        const res = await fetch(`${process.env.SERVER}/projects`).then(
+            response=>response.json()
+        ).then(
+            data=>{
+                setProjects(data)
+            }
+        )
     }
     
     const updateRating=(id, stars)=>
@@ -40,23 +54,10 @@ export const SiteContextProvider = ({children})=>{
     
     useEffect(()=>
     {
+        fetchProjects()
         Put(id)
     }, [updated])
     
-    const Put = async(id)=>
-    {
-        if(id !== 0)
-        {
-            const response = await fetch(`${process.env.serverPath}/projects/${id}`,
-            {
-                method: 'PUT',
-                headers:{
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(updated)
-            })
-        }
-    }
     
     const setRating= async (id, stars, New)=>{
 
