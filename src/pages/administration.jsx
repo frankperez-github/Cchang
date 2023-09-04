@@ -32,16 +32,25 @@ function Admin() {
 
     const Post = async()=>
     {
-        const response = await fetch(`${process.env.SERVER}/projects/`,
+        try
         {
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(project)
-        })
-        alert("Proyecto creado correctamente")
-        window.open(window.location.href, "_self")
+            console.log(project.stars)
+            const response = await fetch(`${process.env.SERVER}/projects/`,
+            {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(project)
+            })
+            console.log(response.body)
+            alert("Proyecto creado correctamente")
+            window.open(window.location.href, "_self")
+        }
+        catch(err)
+        {
+            console.log(err.message)
+        }
     }
     const Delete = async(id)=>
     {
@@ -95,8 +104,8 @@ function Admin() {
                 project.secondaryImages[3] === document.getElementById("Update_secImg4") ? project.secondaryImages[3] : imagePath(document.getElementById("Update_secImg1").value), 
             ],
             "title": [
-                document.getElementById("Update_key-word").value,
-                document.getElementById("Update_title").value
+                document.getElementById("key-word").value,
+                document.getElementById("title").value
             ],
             "category": document.getElementById("Update_category").value,
             "description": document.getElementById("Update_description").value,
@@ -123,12 +132,11 @@ function Admin() {
     const updateNew=()=>
     {
         const newProject = {
-            "_id": uuidv4(),
             "principalImage": imagePath(document.getElementById("principalImg").value),
             "secondaryImages": [imagePath(document.getElementById("secImg1").value), imagePath(document.getElementById("secImg2").value), imagePath(document.getElementById("secImg3").value), imagePath(document.getElementById("secImg4").value)],
             "title": [
-                document.getElementById("Update_key-word").value,
-                document.getElementById("Update_title").value
+                document.getElementById("key-word").value,
+                document.getElementById("title").value
             ],
             "category": document.getElementById("category").value,
             "description": document.getElementById("description").value,

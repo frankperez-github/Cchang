@@ -87,10 +87,11 @@ function Projects() {
                 <Swiper slidesPerView={3}   navigation={true} pagination={true}  modules={[Navigation]} className="mySwiper">
                 {
                     Projects.map(project => (
-                        <SwiperSlide key={project.id} className="slide">
-                            <div className="slideElement" key={project.id}>
+                        console.log(project),
+                        <SwiperSlide key={project._id} className="slide">
+                            <div className="slideElement" key={project._id}>
                                 <ProjectCard project={project} />
-                                <button onClick={()=>handleClick(project.id)} className="siteButton extraLarge">Ver Más</button>
+                                <button onClick={()=>handleClick(project._id)} className="siteButton extraLarge">Ver Más</button>
                             </div>
                         </SwiperSlide>
                     ))
@@ -101,9 +102,9 @@ function Projects() {
                 <div className="Projects mobContainer desktopHidden">
                 {
                     Projects.map(project => (
-                            <div key={project.id} className="slideElement">
+                            <div key={project._id} className="slideElement">
                                 <ProjectCard project={project} />
-                                <button onClick={()=>handleClick(project.id)} className="siteButton extraLarge">Ver Más</button>
+                                <button onClick={()=>handleClick(project._id)} className="siteButton extraLarge">Ver Más</button>
                             </div>
                     
                     ))

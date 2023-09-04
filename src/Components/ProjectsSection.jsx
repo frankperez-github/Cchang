@@ -11,7 +11,7 @@ function Projects(){
             <h2 className='desktopHidden'>Proyectos</h2>
             <ProjectCard project={projects[projects.length - 1]}/>
             <div className="projectsButtons">
-                <button onClick={()=>(window.open(`/Project?id=${projects[projects.length - 1].id}` ,"_self"))} className="siteButton shortButton">Ver Más</button>
+                <button onClick={()=>(window.open(`/Project?id=${projects[projects.length - 1]._id}` ,"_self"))} className="siteButton shortButton">Ver Más</button>
                 <button onClick={()=>(window.open("Projects?category=eléctricos" ,"_self"))} className="siteButton largeButton">Otros Proyectos</button>
             </div>
         </div>

@@ -11,7 +11,7 @@ function Project() {
 
     const { setRating, projects, updateRating, fetchProjects} = useContext(SiteContext)
     const router = useRouter()
-    const { id } = router.query
+    const {id} = router.query
 
     const handleReview =(stars)=>{
         if(!localStorage.getItem("ratedProjects"))
@@ -54,13 +54,25 @@ function Project() {
         "reviews": 0}
     )
     
-
-    useEffect(()=>{
-        if(projects.length === 0)
-        {
-            fetchProjects()
+    const fetchProject= async()=>{
+        try{
+            console.log(id)
+            await fetch(`${process.env.SERVER}/projects/${id}`).then(
+                response=>response.json()
+            ).then(
+                data=>{
+                    setProject(data)
+                }
+            )
         }
-        setProject(projects.find((x)=>(x.id === id)))
+        catch(err)
+        {
+            console.log(err.message)
+        }
+    }
+
+    useEffect(() =>{
+        fetchProject()        
     }, [id, projects])  
 
 
