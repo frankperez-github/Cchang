@@ -53,6 +53,7 @@ function Admin() {
             },
         })
         alert("Proyecto Eliminado correctamente")
+        location.reload()
         fetchProjects()
     }
     const Put = async(id)=>
