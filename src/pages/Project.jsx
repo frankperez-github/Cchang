@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 function Project() {
 
-    const { setRating, projects, updateRating, fetchProjects} = useContext(SiteContext)
+    const { setRating, updateRating, fetchProjects} = useContext(SiteContext)
     const router = useRouter()
     const {id} = router.query
 
@@ -57,13 +57,16 @@ function Project() {
     const fetchProject= async()=>{
         try{
             console.log(id)
-            await fetch(`${process.env.SERVER}/projects/${id}`).then(
-                response=>response.json()
-            ).then(
-                data=>{
-                    setProject(data)
-                }
-            )
+            if(id !== undefined)
+            {
+                await fetch(`${process.env.SERVER}/projects/${id}`).then(
+                    response=>response.json()
+                ).then(
+                    data=>{
+                        setProject(data)
+                    }
+                )
+            }
         }
         catch(err)
         {
@@ -73,11 +76,11 @@ function Project() {
 
     useEffect(() =>{
         fetchProject()        
-    }, [id, projects])  
+    }, [id])  
 
 
     return(
-        project !== undefined ?
+        project.id !== 0 ?
         <>
             <div className="mobileHidden">
                 <Header />
