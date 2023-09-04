@@ -45,34 +45,48 @@ function Admin() {
     }
     const Delete = async(id)=>
     {
-        const response = await fetch(`${process.env.SERVER}/projects/${id}`,
+        try
         {
-            method: 'DELETE',
-            headers:{
-                'Content-Type': 'application/json',
-            },
-        })
-        alert("Proyecto Eliminado correctamente")
-        location.reload()
-        fetchProjects()
+            const response = await fetch(`${process.env.SERVER}/projects/${id}`,
+            {
+                method: 'DELETE',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+            })
+            alert("Proyecto Eliminado correctamente")
+            location.reload()
+            fetchProjects()
+        }
+        catch(err)
+        {
+            console.log(err.message)
+        }
     }
     const Put = async(id)=>
     {
         Update()
-        const response = await fetch(`${process.env.SERVER}/projects/${id}`,
+        try
         {
-            method: 'PUT',
-            headers:{
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(project)
-        })
-        fetchProjects()
+            const response = await fetch(`${process.env.SERVER}/projects/${id}`,
+            {
+                method: 'PUT',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(project)
+            })
+            fetchProjects()
+        }
+        catch(err)
+        {
+            console.log(err.message)
+        }
     }
     const Update = ()=>
     {
         const newProject = {
-            "id": project.id,
+            "_id": project._id,
             "principalImage": project.principalImage === document.getElementById("Update_principalImg") ? project.principalImage : imagePath(document.getElementById("Update_principalImg").value),
             "secondaryImages": [
                 project.secondaryImages[0] === document.getElementById("Update_secImg1") ? project.secondaryImages[0] : imagePath(document.getElementById("Update_secImg1").value), 
@@ -109,7 +123,7 @@ function Admin() {
     const updateNew=()=>
     {
         const newProject = {
-            "id": uuidv4(),
+            "_id": uuidv4(),
             "principalImage": imagePath(document.getElementById("principalImg").value),
             "secondaryImages": [imagePath(document.getElementById("secImg1").value), imagePath(document.getElementById("secImg2").value), imagePath(document.getElementById("secImg3").value), imagePath(document.getElementById("secImg4").value)],
             "title": [
@@ -146,7 +160,7 @@ function Admin() {
     {
         if(confirm("Desea borrar el proyecto?"))
         {
-            Delete(project.id)
+            Delete(project._id)
         }
     }
 
@@ -215,7 +229,7 @@ function Admin() {
                 :
                 <>
                     <form action="">
-                        <h3 id="id">id: {project.id}</h3>
+                        <h3 id="id">id: {project._id}</h3>
                         <h3>Título:</h3>
                         <input type="text" id="Update_key-word" onChange={()=>Update()} defaultValue={project.title[0]} placeholder="palabra clave"/>
                         <input type="text" id="Update_title" onChange={()=>Update()} defaultValue={project.title[1]} placeholder="resto del título"/>
@@ -255,7 +269,7 @@ function Admin() {
                         <h3>Año:</h3>
                         <input id="Update_year" type="number" onChange={()=>Update()} defaultValue={project.year}/>
                     </form>
-                    <button className="siteButton" onClick={()=>(setUpdating(false), Put(project.id))}>Update</button>
+                    <button className="siteButton" onClick={()=>(setUpdating(false), Put(project._id))}>Update</button>
                     <button className="siteButton" onClick={()=>setUpdating(false)}>Cancel</button>
                 </>
             }
