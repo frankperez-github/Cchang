@@ -34,7 +34,7 @@ function Admin() {
     {
         try
         {
-            const response = await fetch(`${process.env.SERVER}/projects/`,
+            const response = await fetch(`${process.env.SERVER}/projects`,
             {
                 method: 'POST',
                 headers:{
