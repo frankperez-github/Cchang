@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
   font-family: 'Quicksand', sans-serif;
   padding: 0;
@@ -10,10 +12,16 @@
 {
   font-family: 'Source Sans Pro', sans-serif;
 }
+b{
+  font-size: 25px;
+}
 html,
 body {
   background-color: #ECECEF !important;
   max-width: 100vw;
+}
+.ServiceCard p, .ServiceCard b{
+  font-size: 18px;
 }
 p{
   font-family: 'Raleway', sans-serif;
@@ -21,9 +29,12 @@ p{
 }
 h1
 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900 !important;
   font-size: 32px;
 }
 .name p{
+  font-family: 'Poppins', sans-serif;
   font-size: 22px;
 }
 h1,h2,h3,h4
@@ -53,10 +64,10 @@ h1,h2,h3,h4,button
 {
   text-transform: uppercase;
 }
-.name p
-{
-  text-transform: uppercase;
+.name h1{
+  text-transform: none !important;
 }
+
 .image{
   object-fit: cover;
   width: 100% !important;
@@ -68,16 +79,16 @@ h1,h2,h3,h4,button
   background-image: url("/headerBackground.svg");
   background-color: rgb(0, 34, 103);
   background-position: center center;
-  background-repeat: repeat;
-  background-size:  cover;
+  background-size: cover;
+  background-repeat: no-repeat;
   margin-bottom: 20%;
   min-height: 18vh;
 }
 .logo
 {
-  margin-top: -2%;
+  margin-top: -11%;
   position: absolute;
-  width: 35%;
+  width: 15%;
   padding-left: 1%;
   cursor: pointer;
 }
@@ -86,7 +97,6 @@ h1,h2,h3,h4,button
   margin: 5%;
   padding-top: 5%;
   margin-top: 0;
-  padding-left: 3%;
   margin-bottom: 2%;
 }
 .CompanyName
@@ -99,7 +109,7 @@ h1,h2,h3,h4,button
 .headerImages
 {
   margin-top: 12%;
-  width: 80%;
+  width: 50%;
   display: flex;
   margin-left: 2%;
   margin-bottom: -5%;
@@ -107,19 +117,26 @@ h1,h2,h3,h4,button
 }
 .headerImage
 {
+  margin-left: 15%;
   margin-top: 5%;
   margin-bottom: -5%;
   width: 32% !important;
+}
+.headerImage:first-of-type{
+  margin-left: -5%;
 }
 .infoBody
 {
   display: block;
 }
+.infoBody p{
+  font-weight: 100 !important;
+}
 .navBar
 {
   color: black;
   padding-bottom: 0;
-  margin-top: -20%;
+  margin-top: -24%;
   padding: 3%;
   display: flex;
   justify-content: right;
@@ -128,6 +145,7 @@ h1,h2,h3,h4,button
 .navBar a
 {
   margin: 0 3%;
+  padding-bottom: 0.5%;
 }
 .categoriesIcons
 {
@@ -135,7 +153,7 @@ h1,h2,h3,h4,button
   justify-content: space-evenly;
   width: 40%;
   padding-left: 55.5%;
-  padding-top: 5%;
+  padding-top: 6%;
 }
 .categImage
 {
@@ -145,6 +163,7 @@ h1,h2,h3,h4,button
 .selected
 {
   border-bottom: solid;
+  border-width: 8px;
   border-color: rgb(255, 134, 5);
 }
 .mobContainer
@@ -190,7 +209,7 @@ h1,h2,h3,h4,button
   color: white;
   background-color: blue;
   border-radius: 1rem;
-  padding: 8%;
+  padding: 9%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -206,7 +225,7 @@ h1,h2,h3,h4,button
 }
 .ProjectCard
 {
-  width: 90%;
+  width: 98%;
   border: solid;
   border-radius: 0.6rem;
   border-width: 1px;
@@ -240,6 +259,8 @@ h1,h2,h3,h4,button
 }
 .siteButton
 {
+  font-size: 18px;
+  font-weight: 800 !important;
   margin-top: 5%;
   background-color: white;
   border: solid;
@@ -415,11 +436,14 @@ textarea
   }
   .name p
   {
-    font-size: 19px;
+    font-size: 39px;
+  }
+  .name h1{
+    font-size: 44px;
   }
   h2
   {
-    font-size: 19px;
+    font-size: 28px;
   }
   h3
   {
@@ -428,7 +452,7 @@ textarea
   p, a, button
   {
     line-height: 105%;
-    font-size: 13px;
+    font-size: 22px;
   }
   button
   {
@@ -589,7 +613,7 @@ textarea
     display: flex;
     justify-content: space-evenly;
     width: 18%;
-    padding-left: 40%;
+    padding-left: 50%;
     margin-top: -12%;
   }
   .Projects, .Contact
@@ -601,7 +625,7 @@ textarea
   {
     padding-top: 0;
     justify-content: left;
-    padding-bottom: 4.6%;
+    padding-bottom: 3%;
   }
   .leftSide
   {
@@ -611,6 +635,7 @@ textarea
   {
     width: 50%;
     margin-right: 5%;
+    margin-top: -3%;
   }
   .Services
   {
@@ -620,16 +645,17 @@ textarea
   {
     width: 100%;
     margin-top: -6%;
-    margin-bottom: 24%;
+    margin-bottom: 5%;
   }
   .Services h2
   {
     font-weight: 100;
-    margin-bottom: 20%;
+    margin-top: 3%;
+    margin-bottom: 2%;
     border-bottom: solid;
-    border-bottom-width: 4px;
+    border-width: 8px;
     width: 85%;
-    border-color: rgb(93, 142, 255);
+    border-color:rgb(0, 0, 216)
   }
   .sendMessage
   {
@@ -651,6 +677,7 @@ textarea
   }
   .ServiceCard
   {
+    padding: 4% 8%;
     min-height: 12vh;
     margin: 12% 0;
     width: 100%;
@@ -663,8 +690,9 @@ textarea
   }
   .headerImages
   {
-    margin-top: 1%;
-    width: 40%;
+    margin-top: -1.5%;
+    padding: 3%;
+    width: 30%;
   }
   .headerImage
   {
@@ -678,8 +706,8 @@ textarea
   }
   .name
   {
-    margin-right: 12%;
-    padding-top: 11%;
+    margin-right: 23%;
+    padding-top: 7%;
     margin-bottom: 0;
   }
   .logo
@@ -687,8 +715,6 @@ textarea
     position: static;
     margin-bottom: 26%;
     padding-bottom: 2%;
-    margin-top: -14%;
-    width: 22%;
     margin-left: 3%;
   }
   .Header

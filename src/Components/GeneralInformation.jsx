@@ -49,13 +49,15 @@ function GeneralInformation(){
                 <br/>
                 <p>Contamos con una fuerza de trabajo clasificada y enfoca su gestión en lograr instalaciones confortables y sostenibles.</p>
                 
-                <h3>MISIÓN</h3>
+                <br />
+                <p><b>MISIÓN</b></p>
                 <br/>
                 <p>Construir, reparar y mantener infraestructuras, así como instalar y sostener sistemas eléctricos y de refrigeración y clima, garantizando calidad y confort: con
                     un personal competente y comprometido con satisfacer las exigencias de los clientes.
                 </p>
 
-                <h3>VISIÓN</h3>
+                <br />
+                <p><b>VISIÓN</b></p>
                 <br/>
                 <p>Contamos con el respeto y fidelidad de nuetsros clientes, internas y externas, que apuestan por la calidad, excelencia y garantía de nuestros servicios.</p>
             </div>
