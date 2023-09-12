@@ -101,8 +101,8 @@ function Admin() {
                 project.secondaryImages[3] === document.getElementById("Update_secImg4") ? project.secondaryImages[3] : imagePath(document.getElementById("Update_secImg1").value), 
             ],
             "title": [
-                document.getElementById("key-word").value,
-                document.getElementById("title").value
+                document.getElementById("Update_key-word").value,
+                document.getElementById("Update_title").value
             ],
             "category": document.getElementById("Update_category").value,
             "description": document.getElementById("Update_description").value,
