@@ -59,10 +59,11 @@ function Projects() {
     }
 
     useEffect(()=>{
+        setcateg("all")
         updateCategIcon()
         setProjects(filter(categ))
         setSelected(1)
-    }, [category, categ])
+    }, [category])
 
 
     return(

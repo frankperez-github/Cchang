@@ -18,7 +18,7 @@ function NavBar() {
                     Sobre la Empresa
                 </h2>
             </Link>
-            <Link href="/Projects?category=all" id="1" onClick={()=>setSelected(1)}>
+            <Link href="/Projects?category=all" id="1" onClick={()=>{setSelected(1)}}>
                 <h2>
                     Proyectos
                 </h2>
