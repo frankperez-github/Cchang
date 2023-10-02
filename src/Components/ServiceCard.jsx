@@ -12,7 +12,16 @@ function ServiceCard({backgrColor, imagePath, Text, title}) {
                 <Image className="image" src={imagePath} alt="service" fill/>
             </div>
             <div className="ServiceName">
-                <p>{Text} <b>{title}</b></p>
+                <p>{Text.split(' ').map((word)=>{
+                    if(word === "Remodelación")
+                    {
+                        return(<b>REMODELACIÓN</b>)
+                    }
+                    else
+                    {
+                        return(word+" ")
+                    }
+                    })} <b>{title}</b></p>
             </div>
         </div>
     );

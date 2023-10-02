@@ -59,7 +59,7 @@ function GeneralInformation(){
                 <br />
                 <p><b>VISIÓN</b></p>
                 <br/>
-                <p>Contamos con el respeto y fidelidad de nuetsros clientes, internas y externas, que apuestan por la calidad, excelencia y garantía de nuestros servicios.</p>
+                <p>Contamos con el respeto y fidelidad de nuestros clientes, internas y externas, que apuestan por la calidad, excelencia y garantía de nuestros servicios.</p>
             </div>
         </div>
     );

@@ -76,8 +76,7 @@ h1,h2,h3,h4,button
 .Header
 {
   color: white;
-  background-image: url("/headerBackground.svg");
-  background-color: rgb(0, 34, 103);
+  background-image: url("/headerBackground.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -262,19 +261,19 @@ h1,h2,h3,h4,button
   font-size: 18px;
   font-weight: 800 !important;
   margin-top: 5%;
-  background-color: white;
+  background-color: gray;
   border: solid;
   border-width: 2px;
   border-color: gray;
-  color: gray;
+  color: white;
   padding: 2% 3%;
   border-radius: 1.5rem;
   box-shadow: rgb(186, 186, 186) -4px 4px 10px;
 }
 .siteButton:hover
 {
-  background-color: gray;
-  color: white;
+  background-color: white;
+  color: gray;
 }
 .largeButton
 {
@@ -481,12 +480,30 @@ textarea
   }
 }
 @media (max-width: 650px) {
+  .logo
+  {
+    width: 40%;
+    margin-top: 5%;
+  }
+  .navBar
+  {
+    margin-top: -20%;
+  }
+  .headerImages
+  {
+    width: 45%;
+  }
   .Header
   {
     padding-bottom: 15%;
   }
   h1{
     font-size: 21.5px;
+  }
+  .name
+  {
+    margin-top: 5%;
+    margin-left: 10%;
   }
   .name p
   {
@@ -508,19 +525,19 @@ textarea
 }
 @media (max-width: 420px) {
   
-  h1{
-    font-size: 25px;
+  h1, b{
+    font-size: 20px;
   }
   h2{
-    font-size: 17px;
+    font-size: 12px;
   }
   h3{
-    font-size: 15px;
+    font-size: 12px;
   }
   p, button, input, select
   {
     line-height: 105%;
-    font-size: 15px;
+    font-size: 12px;
   }
   a
   {
