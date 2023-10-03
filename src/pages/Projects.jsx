@@ -91,7 +91,7 @@ function Projects() {
                         <SwiperSlide key={project._id} className="slide">
                             <div className="slideElement" key={project._id}>
                                 <ProjectCard project={project} />
-                                <button onClick={()=>handleClick(project._id)} className="siteButton extraLarge">Ver Más</button>
+                                <button onClick={()=>handleClick(project._id)} className="siteButton whiteButton extraLarge">Ver Más</button>
                             </div>
                         </SwiperSlide>
                     ))
@@ -102,10 +102,10 @@ function Projects() {
                 <div className="Projects mobContainer desktopHidden">
                 {
                     Projects.map(project => (
-                            <div key={project._id} className="slideElement">
-                                <ProjectCard project={project} />
-                                <button onClick={()=>handleClick(project._id)} className="siteButton extraLarge">Ver Más</button>
-                            </div>
+                        <div key={project._id} className="slideElement">
+                            <ProjectCard project={project} />
+                            <button onClick={()=>handleClick(project._id)} className="siteButton whiteButton extraLarge">Ver Más</button>
+                        </div>
                     
                     ))
                 }

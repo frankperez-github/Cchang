@@ -179,7 +179,7 @@ function Project() {
                         <img onClick={()=>(handleReview(5))} className="image completeStar" src="/emptyStar.png" fill alt="*"/>
                     </div>
                 </div>
-                <div className="right column">
+                <div className="right column projectContact">
                     <Contact />
                 </div>
             </div>
